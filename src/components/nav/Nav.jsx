@@ -36,11 +36,12 @@ const Nav = () => {
                             <Text fontSize="32px" fontWeight="bold" color="white" ml={3} lineHeight="1">
                                 | LegalTitan
                             </Text>
+                            <Text fontSize="lg" color="white" ml={6} mt={1}>
+                                |  Իրավաբանական Ընկերություն
+                            </Text>
                         </Flex>
 
-                        <Text fontSize="lg" color="white" ml={6} mt={1}>
-                            Իրավաբանական Ընկերություն
-                        </Text>
+
                     </Flex>
 
                     <HStack spacing={8} align="center">
@@ -105,35 +106,111 @@ const Nav = () => {
             </Flex>
 
             <Flex justify="center" gap={10} mt={8} maxW="1600px" mx="auto">
-                {["Ընկերությունը", "Մեր թիմը", "Ծառայություններ", "Կորպորատիվ Հաճախորդներ", "Կապ"].map((item) => (
-                    <Link
-                        key={item}
-                        href="#"
-                        color="white"
-                        fontWeight="semibold"
-                        fontSize="lg"
-                        textDecoration="none"
-                        position="relative"
-                        _hover={{
-                            _after: {
-                                content: '""',
-                                position: 'absolute',
-                                bottom: '-5px',
-                                left: '0',
-                                width: '100%',
-                                height: '2px',
-                                bg: 'white',
-                                borderRadius: 'full'
-                            },
-                            transform: "translateY(-3px)",
-                            textShadow: "0 0 10px rgba(255,255,255,0.7)"
-                        }}
-                        transition="all 0.3s ease"
-                    >
-                        {item}
-                    </Link>
-                ))}
+                <Link
+                    href="#"
+                    color="white"
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    textDecoration="none"
+                    position="relative"
+                    _hover={{
+                        _after: {
+                            content: '""',
+                            position: "absolute",
+                            bottom: "-5px",
+                            left: "0",
+                            width: "100%",
+                            height: "2px",
+                            bg: "white",
+                            borderRadius: "full",
+                        },
+                        transform: "translateY(-3px)",
+                        textShadow: "0 0 10px rgba(255,255,255,0.7)",
+                    }}
+                    transition="all 0.3s ease"
+                >
+                    Ընկերությունը
+                </Link>
+
+                <Link
+                    href="#"
+                    color="white"
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    textDecoration="none"
+                    position="relative"
+                    _hover={{
+                        _after: {
+                            content: '""',
+                            position: "absolute",
+                            bottom: "-5px",
+                            left: "0",
+                            width: "100%",
+                            height: "2px",
+                            bg: "white",
+                            borderRadius: "full",
+                        },
+                        transform: "translateY(-3px)",
+                        textShadow: "0 0 10px rgba(255,255,255,0.7)",
+                    }}
+                    transition="all 0.3s ease"
+                >
+                    Մեր թիմը
+                </Link>
+
+                <Link
+                    href="/services"
+                    color="white"
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    textDecoration="none"
+                    position="relative"
+                    _hover={{
+                        _after: {
+                            content: '""',
+                            position: "absolute",
+                            bottom: "-5px",
+                            left: "0",
+                            width: "100%",
+                            height: "2px",
+                            bg: "white",
+                            borderRadius: "full",
+                        },
+                        transform: "translateY(-3px)",
+                        textShadow: "0 0 10px rgba(255,255,255,0.7)",
+                    }}
+                    transition="all 0.3s ease"
+                >
+                    Ծառայություններ
+                </Link>
+
+                <Link
+                    href="/connect"
+                    color="white"
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    textDecoration="none"
+                    position="relative"
+                    _hover={{
+                        _after: {
+                            content: '""',
+                            position: "absolute",
+                            bottom: "-5px",
+                            left: "0",
+                            width: "100%",
+                            height: "2px",
+                            bg: "white",
+                            borderRadius: "full",
+                        },
+                        transform: "translateY(-3px)",
+                        textShadow: "0 0 10px rgba(255,255,255,0.7)",
+                    }}
+                    transition="all 0.3s ease"
+                >
+                    Կապ
+                </Link>
             </Flex>
+
         </Box>
     );
 };

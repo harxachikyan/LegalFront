@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Flex, Image, Text, VStack, HStack, Icon, Link } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter, FaInstagram, FaHeart, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/legalLogo.jpg";
 import { Link as RouterLink } from "react-router-dom";
 
 const Footer = () => (
@@ -28,7 +28,7 @@ const Footer = () => (
                         <Icon
                             as={FaFacebook}
                             color="white"
-                            fontSize="32px" // This is the most reliable way to control size
+                            fontSize="32px"
                             _hover={{ transform: "scale(1.1)" }}
                             transition="all 0.3s"
                         />
@@ -75,16 +75,17 @@ const Footer = () => (
                 <HStack>
                     <Icon as={FaPhone} color="#187bc0"  />
                     <Text>
-                        +374-77-53-13-09
+                        +374-77-53-13-09 <br />
+                        +374-55-67-30-01
                     </Text>
                 </HStack>
                 <HStack>
                     <Icon as={FaEnvelope} color="#187bc0" />
-                    <Text>info@legaltitan.am</Text>
+                    <Text>Titanlegal66@gmail.com</Text>
                 </HStack>
                 <HStack>
                     <Icon as={FaMapMarkerAlt} color="#187bc0" />
-                    <Text>Երևան, Հր. Քոչար 12</Text>
+                    <Text>4 Ավան-Առինջ 1-ին միկրոշրջան</Text>
                 </HStack>
             </VStack>
 
