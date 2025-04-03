@@ -23,6 +23,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Testimonials from "../../components/modals/Testmonials";
 import HeroCarousel from "../../components/modals/HeroCarousel";
+import Acrostic from "../../components/modals/Acrostic";
 
 const HomePage = () => {
     const toast = useToast();
@@ -148,13 +149,13 @@ const HomePage = () => {
             </Box>
 
             <Testimonials />
-
-            <Box py={20} bg="#187bc085" color="white" marginTop="40px">
+            <Acrostic />
+            <Box py={20} bg="#ebf8ff" color="white" >
                 <Container maxW="container.xl" textAlign="center">
-                    <Heading mb={6} fontSize="3xl" fontWeight="bold">
+                    <Heading mb={6} fontSize="3xl" fontWeight="bold" color="#1565a3">
                         Պատրաստ եք քննարկել Ձեր իրավական հարցերը?
                     </Heading>
-                    <Text fontSize="xl" mb={8} opacity={0.9}>
+                    <Text fontSize="xl" mb={8} opacity={0.9} color="#1565a3">
                         Կապ հաստատեք մեզ հետ՝ անվճար խորհրդատվության համար:
                     </Text>
                     <HStack justify="center" spacing={6} flexWrap="wrap">
