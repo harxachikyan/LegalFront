@@ -3,6 +3,7 @@ import {AuthLayout} from "../components/layout/auth-layout";
 import {HomePage} from "../pages/home-page";
 import {ConnectPage} from "../pages/connect-page";
 import {ServicesPage} from "../pages/services-page"
+import {DocumentsPage} from "../pages/document-page"
 const routes = [
     {
         path: "/",
@@ -12,7 +13,7 @@ const routes = [
         showFooter:true
     },
     {
-        path: "/connect",
+        path: "/contact",
         Component: ConnectPage,
         Layout: MainLayout,
         secured: false,
@@ -21,6 +22,13 @@ const routes = [
     {
         path: "/services",
         Component:ServicesPage,
+        Layout: MainLayout,
+        secured: false,
+        showFooter:true
+    },
+    {
+        path: "/documents",
+        Component:DocumentsPage,
         Layout: MainLayout,
         secured: false,
         showFooter:true

@@ -64,8 +64,10 @@ const HomePage = () => {
                         {practiceAreas.map((area, index) => (
                             <Box
                                 key={index}
-                                bg="white"
+                                bg="rgba(255, 255, 255, 0.08)"
                                 p={8}
+                                backdropFilter="auto"
+                                backdropBlur="8px"
                                 borderRadius="lg"
                                 boxShadow="lg"
                                 textAlign="center"
@@ -73,7 +75,12 @@ const HomePage = () => {
                                 minW={{ base: "100%", md: "300px" }}
                                 maxW={{ base: "100%", md: "calc(33% - 32px)" }}
                                 transition="all 0.3s ease"
-                                _hover={{background:"#80808042", transform: "translateY(-5px)", boxShadow: "xl",borderRadius:"10px" }}
+                                _hover={{
+                                    background: "rgba(128, 128, 128, 0.26)",
+                                    transform: "translateY(-5px)",
+                                    boxShadow: "xl",
+                                    borderRadius: "10px",
+                                }}
                             >
                                 <Icon
                                     as={FontAwesomeIcon}

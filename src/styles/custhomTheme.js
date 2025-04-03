@@ -27,7 +27,9 @@ const customTheme = extendTheme({
                 color: '#ECC94B',
             },
         },
+
     },
+
 })
 
 export default customTheme

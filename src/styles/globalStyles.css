@@ -57,3 +57,9 @@ a {
     font-size: 12px;
     color: #bf6565;
 }
+@supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+    .blur-effect {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
