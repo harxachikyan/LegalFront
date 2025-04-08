@@ -41,7 +41,7 @@ const ConnectPage = () => {
             setIsSubmitting(false);
             toast({
                 title: "Հաղորդագրությունն ուղարկված է",
-                description: "Մենք ստացել ենք Ձեր հաղորդագրությունը և կապ կհաստատենք կարճ ժամանակում:",
+                description: "Մենք ստացել ենք Ձեր հաղորդագրությունը և կապ կհաստատենք Ձեզ հետ սեղմ ժամկետում:",
                 status: "success",
                 duration: 5000,
                 isClosable: true,
@@ -88,12 +88,12 @@ const ConnectPage = () => {
                     px={4}
                 >
                     <Box maxW="2xl">
-                        <Heading as="h1" size="2xl" color="white" mb={4} fontStyle="italic">
-                            LegalTitan իրավաբանական ընկերություն
+                        <Heading as="h1" size="2xl" color="white" mb={4}>
+                            Legal Titan իրավաբանական ընկերություն
                         </Heading>
-                        <Text fontSize="xl" color="white" mb={6} fontStyle="italic">
-                            Մասնագիտական իրավաբանական ծառայություններ բարձր որակով:
-                            Մենք ապահովում ենք մեր հաճախորդների իրավական անվտանգությունը 5 տարվա փորձով:
+                        <Text fontSize="xl" color="white" mb={6} >
+
+
                         </Text>
                         <Button
                             colorScheme="blue"
@@ -107,7 +107,7 @@ const ConnectPage = () => {
             </Box>
 
             <Container maxW="container.lg" py={10} centerContent>
-                <ProgressStats />
+                {/*<ProgressStats />*/}
 
                 <Flex direction={{ base: "column", md: "row" }} gap={10} width="100%">
                     <Box flex={1} bg="white" p={8} borderRadius="lg" boxShadow="md" id="contact-form">
@@ -118,12 +118,30 @@ const ConnectPage = () => {
                         <form onSubmit={handleSubmit}>
                             <VStack spacing={5}>
                                 <FormControl isRequired>
-                                    <FormLabel>Անուն Ազգանուն</FormLabel>
+                                    <FormLabel>Անուն </FormLabel>
                                     <Input
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        placeholder="Ձեր անունը և ազգանունը"
+                                        placeholder="Ձեր անունը"
+                                        size="lg"
+                                        focusBorderColor="blue.500"
+                                    />
+                                    <FormLabel> Ազգանուն</FormLabel>
+                                    <Input
+                                        name="lastname"
+                                        value={formData.lastname}
+                                        onChange={handleChange}
+                                        placeholder="Ձեր ազգանունը"
+                                        size="lg"
+                                        focusBorderColor="blue.500"
+                                    />
+                                    <FormLabel>Հայրանուն</FormLabel>
+                                    <Input
+                                        name="surname"
+                                        value={formData.surname}
+                                        onChange={handleChange}
+                                        placeholder="Ձեր հայրանունը"
                                         size="lg"
                                         focusBorderColor="blue.500"
                                     />
@@ -207,7 +225,7 @@ const ConnectPage = () => {
                                     <Text fontWeight="semibold">Գրասենյակի հասցե</Text>
                                 </HStack>
                                 <Text pl={9} color="gray.600">
-                                    4 Ավան-Առինջ 1-ին միկրոշրջան <br />
+                                   ՀՀ, ք. Երևան, Ավան, Մարշալ Բաբաջանյան 2-րդ նրբ./ընտանեկան այգու հարևանությամբ/  <br />
                                     Երևան
                                 </Text>
                                 <Button
@@ -227,8 +245,9 @@ const ConnectPage = () => {
                                     <Text fontWeight="semibold">Հեռախոսահամարներ</Text>
                                 </HStack>
                                 <Text pl={9} color="gray.600">
-                                    Հիմնական՝ +374 77 531309<br />
-                                    Հիմնական՝ +374 55 673001
+                                    +374 77 531309<br/>
+                                    +374 55 673001<br/>
+                                    +374 43 134362
                                 </Text>
                             </Box>
 
@@ -239,43 +258,50 @@ const ConnectPage = () => {
                                 </HStack>
                                 <Text pl={9} color="gray.600">
                                     Titanlegal66@gmail.com<br />
-                                    contact@legaltitan.am
                                 </Text>
                             </Box>
 
                             <Box>
                                 <HStack spacing={4} mb={2}>
                                     <Icon as={FaClock} color="blue.600" boxSize={5} />
+                                    <Text fontWeight="semibold">Աշխատանքային օրեր</Text>
+                                </HStack>
+                                <Text pl={9} color="gray.600">
+                                    Երկուշաբթի - Ուրբաթ<br />
+
+                                </Text>
+                                <HStack spacing={4} mb={2} mt={2}>
+                                    <Icon as={FaClock} color="blue.600" boxSize={5} />
                                     <Text fontWeight="semibold">Աշխատանքային ժամեր</Text>
                                 </HStack>
                                 <Text pl={9} color="gray.600">
-                                    Երկուշաբթի - Ուրբաթ՝ 09:00 - 18:00<br />
-                                    Կիրակի՝ Փակ
+                                    09:00 - 18:00<br />
                                 </Text>
+
                             </Box>
 
                             <Divider borderColor="gray.300" />
 
                             <Box>
-                                <Heading as="h3" size="md" mb={4} color="blue.700">
-                                    Ծառայություններ
-                                </Heading>
-                                <VStack spacing={3} align="flex-start">
-                                    {practiceAreas.map((area, index) => (
-                                        <HStack key={index} spacing={3}>
-                                            <Icon as={area.icon} color="blue.600" />
-                                            <Text>{area.name}</Text>
-                                        </HStack>
-                                    ))}
-                                </VStack>
-                                <Button
-                                    mt={4}
-                                    variant="outline"
-                                    colorScheme="blue"
-                                    onClick={onServicesOpen}
-                                >
-                                    Դիտել բոլոր ծառայությունները
-                                </Button>
+                                {/*<Heading as="h3" size="md" mb={4} color="blue.700">*/}
+                                {/*    Ծառայություններ*/}
+                                {/*</Heading>*/}
+                                {/*<VStack spacing={3} align="flex-start">*/}
+                                {/*    {practiceAreas.map((area, index) => (*/}
+                                {/*        <HStack key={index} spacing={3}>*/}
+                                {/*            <Icon as={area.icon} color="blue.600" />*/}
+                                {/*            <Text>{area.name}</Text>*/}
+                                {/*        </HStack>*/}
+                                {/*    ))}*/}
+                                {/*</VStack>*/}
+                                {/*<Button*/}
+                                {/*    mt={4}*/}
+                                {/*    variant="outline"*/}
+                                {/*    colorScheme="blue"*/}
+                                {/*    onClick={onServicesOpen}*/}
+                                {/*>*/}
+                                {/*    Դիտել բոլոր ծառայությունները*/}
+                                {/*</Button>*/}
                             </Box>
                         </VStack>
                     </Box>

@@ -20,18 +20,18 @@ const HeroCarousel = () => {
 
     const carouselItems = [
         {
-            title: "Պրոֆեսիոնալ Իրավաբանական Ներկայացում",
-            description: "20 տարուց ավելի փորձ բարդ իրավական հարցերում",
-            bgImage: "/assets/images/homePage/car_back.jpg",
+            title: "Պրոֆեսիոնալ Իրավաբանական և փաստաբանական ծառայություններ",
+            description: "Տարիների փորձ իրավաբանության ոլորտում",
+            bgImage:"assets/images/homePage/hero.webp",
         },
         {
-            title: "Կորպորատիվ Իրավունքի Մասնագետներ",
-            description: "Լուծումներ ձեր բիզնեսի բոլոր իրավական հարցերի համար",
+            title: "Բարձրակարգ կորպորատիվ սպասարկման ծառայություններ",
+            description: "Ձեր բիզնեսի իրավական խնդիրների նախականխում, կանխում և լուծում",
             bgImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         },
         {
-            title: "Անհատական Մոտեցում",
-            description: "Առաջնահերթություն ենք տալիս յուրաքանչյուր հաճախորդի անհատական պահանջներին",
+            title: "Անհատական մոտեցում յուրաքանչյուր վստահորդին",
+            description: "Առաջնահերթություն ենք տալիս յուրաքանչյուր վստահորդի անհատական պահանջներին",
             bgImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
         }
     ];

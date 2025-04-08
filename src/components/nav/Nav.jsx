@@ -1,5 +1,19 @@
-import { Box, Flex, Text, Link, HStack, Menu, MenuButton, MenuList, MenuItem, MenuDivider } from "@chakra-ui/react";
+import {
+    Box,
+    Flex,
+    Text,
+    Link,
+    HStack,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuDivider,
+    Image
+} from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import logo from "../../assets/images/legalLogo.jpg";
+import React from "react";
 
 const Nav = () => {
     return (
@@ -14,10 +28,20 @@ const Nav = () => {
             <Flex justify="space-between" align="center" maxW="1600px" mx="auto">
                 <Flex direction="column">
                     <Flex align="center">
+
+
+                        {/*<Text fontSize="32px" fontWeight="bold" color="white" ml={3} lineHeight="1">*/}
+                        {/*    LAW FIRM*/}
+                        {/*</Text>*/}
+                        <Text fontSize="32px" fontWeight="bold" color="white" ml={3} lineHeight="1" >
+                            LegalTitan
+                        </Text>
+
                         <Box
                             bg="white"
                             color="#1a365d"
                             p={3}
+                            marginLeft="5px"
                             borderRadius="lg"
                             fontWeight="bold"
                             fontSize="xl"
@@ -29,16 +53,10 @@ const Nav = () => {
                         >
                             LLC
                         </Box>
+                        {/*<Text fontSize="28px"  color="white" ml={24} mt={1}  >*/}
+                        {/*     ԻՐԱՎԱԲԱՆԿԱՆ ԵՎ ՓԱՍՏԱԲԱՆԱԿԱՆ ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ*/}
+                        {/*</Text>*/}
 
-                        <Text fontSize="32px" fontWeight="bold" color="white" ml={3} lineHeight="1">
-                            LAW FIRM
-                        </Text>
-                        <Text fontSize="32px" fontWeight="bold" color="white" ml={3} lineHeight="1">
-                            | LegalTitan
-                        </Text>
-                        <Text fontSize="lg" color="white" ml={6} mt={1}>
-                            |  Իրավաբանական Ընկերություն
-                        </Text>
                     </Flex>
                 </Flex>
 
@@ -153,7 +171,7 @@ const Nav = () => {
                     }}
                     transition="all 0.3s ease"
                 >
-                    Մեր թիմը
+                    Մեր մասին
                 </Link>
 
                 <Link
@@ -182,30 +200,7 @@ const Nav = () => {
                     Ծառայություններ
                 </Link>
 
-                <Link
-                    href="/contact"
-                    color="white"
-                    fontWeight="semibold"
-                    fontSize="lg"
-                    textDecoration="none"
-                    position="relative"
-                    _hover={{
-                        _after: {
-                            content: '""',
-                            position: "absolute",
-                            bottom: "-5px",
-                            left: "0",
-                            width: "100%",
-                            height: "2px",
-                            bg: "white",
-                            borderRadius: "full",
-                        },
-                        textShadow: "0 0 10px rgba(255,255,255,0.7)",
-                    }}
-                    transition="all 0.3s ease"
-                >
-                    Կապ
-                </Link>
+
 
                 <Menu isLazy closeOnSelect={false}>
                     <Box position="relative">
@@ -259,6 +254,54 @@ const Nav = () => {
                         </MenuList>
                     </Box>
                 </Menu>
+                <Link
+                    href="/contact"
+                    color="white"
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    textDecoration="none"
+                    position="relative"
+                    _hover={{
+                        _after: {
+                            content: '""',
+                            position: "absolute",
+                            bottom: "-5px",
+                            left: "0",
+                            width: "100%",
+                            height: "2px",
+                            bg: "white",
+                            borderRadius: "full",
+                        },
+                        textShadow: "0 0 10px rgba(255,255,255,0.7)",
+                    }}
+                    transition="all 0.3s ease"
+                >
+                    Դատական գործեր
+                </Link>
+                <Link
+                    href="/contact"
+                    color="white"
+                    fontWeight="semibold"
+                    fontSize="lg"
+                    textDecoration="none"
+                    position="relative"
+                    _hover={{
+                        _after: {
+                            content: '""',
+                            position: "absolute",
+                            bottom: "-5px",
+                            left: "0",
+                            width: "100%",
+                            height: "2px",
+                            bg: "white",
+                            borderRadius: "full",
+                        },
+                        textShadow: "0 0 10px rgba(255,255,255,0.7)",
+                    }}
+                    transition="all 0.3s ease"
+                >
+                    Կապ
+                </Link>
             </Flex>
         </Box>
     );

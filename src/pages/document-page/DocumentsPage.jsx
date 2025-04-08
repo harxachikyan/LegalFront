@@ -145,7 +145,7 @@ const DocumentsPage = () => {
 
             <Box p={4}>
                 <Text fontSize="2xl" fontWeight="bold" mb={6} color="blue.700" textAlign="center">
-                    Գործող Օրենսգրքեր
+                    ՀՀ Օրենսդրություն
                 </Text>
                 <Divider mb={8} />
 
