@@ -41,7 +41,7 @@ const ServicesPage = () => {
         {
             title: "Պայմանագրային իրավունք",
             icon: FaFileContract,
-            color: "red",
+            color: "black",
             services: [
                 "1. Բանակցությունների վարում (նաև օտարերկրյա կազմակերպությունների հետ),",
                 "2. Պայմանագրերի կազմում,",
@@ -52,7 +52,7 @@ const ServicesPage = () => {
         {
             title: "Վարչական իրավունք",
             icon: FaLandmark,
-            color: "orange",
+            color: "blue",
             services: [
                 "Վարչական ակտերի բողոքարկում (տուգանքներ, տույժեր և այլն),",
                 "Վարչական մարմինների գործողությունների և անգործությունների բողոքարկում:"
@@ -61,7 +61,7 @@ const ServicesPage = () => {
         {
             title: "Սնանկություն",
             icon: FaHandshake,
-            color: "pink",
+            color: "teal",
             services: [
                 "1.Կամավոր սնանկության դիմումների կազմում, ",
                 "2.Հարկադրված սնանկության դիմումներ կազմում,",
@@ -71,7 +71,7 @@ const ServicesPage = () => {
         {
             title: "Աշխատանքային",
             icon: MdOutlineRealEstateAgent,
-            color: "orange",
+            color: "black",
             services: [
                 "1.Մինչդատական ներկայացուցչություն աշխատանքային իրավահարաբերություններում  ,",
                 "2.Դատական ներկայացուցչություն աշխատանքային իրավահարաբերություններում :"
@@ -80,7 +80,7 @@ const ServicesPage = () => {
         {
             title: "Գնումներ",
             icon: FaBalanceScale,
-            color: "green",
+            color: "blue",
             services: [
                 "Ներկայացուցչություն գնումների հետ կապված վեճերով:"
             ]
@@ -88,7 +88,7 @@ const ServicesPage = () => {
         {
             title: "Ապահովագրություն",
             icon: FaHandshake,
-            color: "pink",
+            color: "teal",
             services: [
                 "Ապահովագրական հարաբերություններ:"
             ]
@@ -96,7 +96,7 @@ const ServicesPage = () => {
         {
             title: "Կատարողական վարույթ",
             icon: GiMoneyStack,
-            color: "purple",
+            color: "black",
             services: [
                 "Կատարողական վարույթի սպասարկում:"
             ]
@@ -104,7 +104,7 @@ const ServicesPage = () => {
         {
             title: "Արբիտրաժային վարույթ",
             icon: FaBalanceScale,
-            color: "black",
+            color: "blue",
             services: [
                 "Ներկայացուցչություն արբիտրաժային վարույթում:"
             ]
@@ -112,7 +112,7 @@ const ServicesPage = () => {
         {
             title: "Կառուցապատում",
             icon: MdOutlineRealEstateAgent,
-            color: "yellow",
+            color: "teal",
             services: [
                 "Կառուցապատման հարաբերություններ:"
             ]
@@ -120,7 +120,7 @@ const ServicesPage = () => {
         {
             title: "Դատական ներկայացուցչություն",
             icon: FaUserTie,
-            color: "green",
+            color: "black",
             services: [
                 "Ներկայացուցչություն սեփականության իրավունքի պաշտպանության գործերով,",
                 "Ներկայացուցչություն հողային իրավունքի պաշտպանության գործերով,",
@@ -216,7 +216,7 @@ const ServicesPage = () => {
                                     borderRadius="lg"
                                     boxShadow="md"
                                     height="100%"
-                                    minHeight="300px"
+                                    minHeight="350px" // Set a fixed minimum height
                                     display="flex"
                                     flexDirection="column"
                                     borderLeft="4px solid"
@@ -229,6 +229,7 @@ const ServicesPage = () => {
                                     }}
                                     onClick={() => handleCategoryClick(category)}
                                     cursor="pointer"
+                                    position="relative" // For absolute positioning of button
                                 >
                                     <Flex align="center" mb={4}>
                                         <Icon
@@ -241,26 +242,31 @@ const ServicesPage = () => {
                                             {category.title}
                                         </Heading>
                                     </Flex>
-                                    <List spacing={2} flex="1">
-                                        {category.services.slice(0, 3).map((service, i) => (
-                                            <ListItem key={i} display="flex" alignItems="flex-start">
-                                                <ListIcon
-                                                    as={FaBalanceScale}
-                                                    color={`${category.color}.400`}
-                                                    mt={1}
-                                                />
-                                                <Text>{service}</Text>
-                                            </ListItem>
-                                        ))}
+
+                                    <Box flex="1" overflow="hidden" mb={4}>
+                                        <List spacing={2}>
+                                            {category.services.slice(0, 3).map((service, i) => (
+                                                <ListItem key={i} display="flex" alignItems="flex-start">
+                                                    <ListIcon
+                                                        as={FaBalanceScale}
+                                                        color={`${category.color}.400`}
+                                                        mt={1}
+                                                    />
+                                                    <Text noOfLines={2}>{service}</Text>
+                                                </ListItem>
+                                            ))}
+                                        </List>
+
                                         {category.services.length > 3 && (
                                             <Text mt={2} color={`${category.color}.500`} fontWeight="medium">
                                                 + {category.services.length - 3} այլ ծառայություններ...
                                             </Text>
                                         )}
-                                    </List>
+                                    </Box>
                                     {category.services.length > 3 && (
+
                                         <Button
-                                            mt={4}
+                                            mt="auto"
                                             size="sm"
                                             variant="outline"
                                             colorScheme={category.color}
@@ -269,6 +275,8 @@ const ServicesPage = () => {
                                             Տեսնել ավելին
                                         </Button>
                                     )}
+
+
                                 </Box>
                             </ScaleFade>
                         </MotionBox>

@@ -149,7 +149,7 @@ const Nav = () => {
                 </Link>
 
                 <Link
-                    href="#"
+                    href="/about"
                     color="white"
                     fontWeight="semibold"
                     fontSize="lg"

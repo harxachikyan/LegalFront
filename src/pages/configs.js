@@ -4,6 +4,8 @@ import {HomePage} from "../pages/home-page";
 import {ConnectPage} from "../pages/connect-page";
 import {ServicesPage} from "../pages/services-page"
 import {DocumentsPage} from "../pages/document-page"
+import {AboutPage} from "../pages/about-page";
+
 const routes = [
     {
         path: "/",
@@ -29,6 +31,13 @@ const routes = [
     {
         path: "/documents",
         Component:DocumentsPage,
+        Layout: MainLayout,
+        secured: false,
+        showFooter:true
+    },
+    {
+        path: "/about",
+        Component:AboutPage,
         Layout: MainLayout,
         secured: false,
         showFooter:true
