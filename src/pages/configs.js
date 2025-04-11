@@ -5,6 +5,7 @@ import {ConnectPage} from "../pages/connect-page";
 import {ServicesPage} from "../pages/services-page"
 import {DocumentsPage} from "../pages/document-page"
 import {AboutPage} from "../pages/about-page";
+import {WorksPage} from "../pages/works-page";
 
 const routes = [
     {
@@ -38,6 +39,13 @@ const routes = [
     {
         path: "/about",
         Component:AboutPage,
+        Layout: MainLayout,
+        secured: false,
+        showFooter:true
+    },
+    {
+        path: "/works",
+        Component:WorksPage,
         Layout: MainLayout,
         secured: false,
         showFooter:true

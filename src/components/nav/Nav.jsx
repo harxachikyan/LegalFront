@@ -255,7 +255,7 @@ const Nav = () => {
                     </Box>
                 </Menu>
                 <Link
-                    href="/contact"
+                    href="/works"
                     color="white"
                     fontWeight="semibold"
                     fontSize="lg"

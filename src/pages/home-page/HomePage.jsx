@@ -24,6 +24,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Testimonials from "../../components/modals/Testmonials";
 import HeroCarousel from "../../components/modals/HeroCarousel";
 import Acrostic from "../../components/modals/Acrostic";
+import Marquee from "../../components/modals/Marquee";
+import GerbIcon from "../../assets/images/gerb.png";
 
 const HomePage = () => {
     const toast = useToast();
@@ -38,7 +40,7 @@ const HomePage = () => {
         autoplaySpeed: 5000,
     };
 
-// const
+
 
     const practiceAreas = [
         { icon: faGavel, title: "Քաղաքացիական իրավունք", description: "Ձեր իրավունքների և օրինական շահերի պաշտպանություն մասնավոր իրավունքին առնչվող ցանկացած գործով" },
@@ -50,7 +52,13 @@ const HomePage = () => {
         <Box maxW="100vw" overflowX="hidden">
 
             <HeroCarousel />
-
+            <Marquee
+                icon={GerbIcon}
+                title="Մեր Հաջողված Գործերը"
+                subtitle="Մեր իրավաբանական թիմի կողմից իրականացված ամենանշանակալի դատական գործերը"
+                bgColor="#1a365d"
+                speed={20}
+            />
             <Box py={20} bg="gray.50">
                 <Container maxW="container.xl" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
                     <Heading textAlign="center" mb={12} color="#187bc0">Ծառայությունների Ոլորտները</Heading>
