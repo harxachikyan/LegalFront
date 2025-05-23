@@ -1,12 +1,15 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import { keyframes } from "@emotion/react";
 
 const Marquee = ({ icon, title, subtitle, bgColor, speed = 20 }) => {
+
+
     return (
         <Box
             color="white"
             bg={bgColor}
-            py={20}
+            py={{ base: 10, md: 20 }}
             overflow="hidden"
             position="relative"
         >
@@ -17,22 +20,34 @@ const Marquee = ({ icon, title, subtitle, bgColor, speed = 20 }) => {
                 animation={`marquee ${speed}s linear infinite`}
             >
                 {icon && (
-                    <Box mr={8} flexShrink={0}>
+                    <Box mr={{ base: 4, md: 8 }} flexShrink={0}>
                         <img
                             src={icon}
                             alt="Marquee Icon"
                             style={{
                                 height: '120px',
+
                             }}
                         />
                     </Box>
                 )}
 
                 <Box>
-                    <Heading as="h1" size="2xl" mb={6} display="inline-block">
+                    <Heading
+                        as="h1"
+                        fontSize={{ base: "xl", sm: "2xl", md: "3xl", lg: "4xl", xl: "5xl" }}
+                        mb={{ base: 2, md: 6 }}
+                        display="inline-block"
+                        verticalAlign="middle"
+                    >
                         {title}
                     </Heading>
-                    <Text fontSize="xl" display="inline-block" ml={6}>
+                    <Text
+                        fontSize={{ base: "md", sm: "lg", md: "xl", lg: "2xl" }}
+                        display="inline-block"
+                        ml={{ base: 4, md: 6 }}
+                        verticalAlign="middle"
+                    >
                         {subtitle}
                     </Text>
                 </Box>

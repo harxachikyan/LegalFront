@@ -13,7 +13,6 @@ import {
     useBreakpointValue,
     Button,
     Icon,
-
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
@@ -26,8 +25,6 @@ import officePhoto from "../../assets/images/office.jpeg";
 const MotionBox = motion(Box);
 
 const AboutPage = () => {
-    const isMobile = useBreakpointValue({ base: true, md: false });
-
     const stats = [
         { value: "5+", label: "Տարիների փորձ" },
         { value: "100+", label: "Դատական գործեր" },
@@ -77,50 +74,74 @@ const AboutPage = () => {
 
     return (
         <Box bg="gray.50">
-
             <Box
                 bg="linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 32, 44, 0.9)), url('../../assets/images/about-back.jpg')"
                 bgSize="cover"
                 bgPosition="center"
                 color="white"
-                py={32}
+                py={{ base: 20, md: 32 }}
                 textAlign="center"
             >
-                <Container maxW="container.lg">
+                <Container maxW={{ base: "90%", md: "container.lg" }}>
                     <MotionBox
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <Heading as="h1" size="2xl" mb={6} fontWeight="bold">
+                        <Heading
+                            as="h1"
+                            fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                            mb={{ base: 4, md: 6 }}
+                            fontWeight="bold"
+                        >
                             Մեր Իրավաբանական Գրասենյակի Մասին
                         </Heading>
-                        <Text fontSize="xl" maxW="2xl" mx="auto">
+                        <Text
+                            fontSize={{ base: "md", md: "xl" }}
+                            maxW="2xl"
+                            mx="auto"
+                        >
                             2005 թվականից մենք ապահովում ենք բարձրորակ իրավաբանական ծառայություններ՝ հիմնված արդարադատության, գերազանցության և հավատարմության վրա:
                         </Text>
                     </MotionBox>
                 </Container>
             </Box>
 
-
-            <Container maxW="container.lg" py={20}>
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center">
+            <Container maxW={{ base: "90%", md: "container.lg" }} py={{ base: 12, md: 20 }}>
+                <SimpleGrid
+                    columns={{ base: 1, md: 2 }}
+                    spacing={{ base: 8, md: 10 }}
+                    alignItems="center"
+                >
                     <MotionBox
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <Heading as="h2" size="xl" mb={6} color="blue.800">
+                        <Heading
+                            as="h2"
+                            fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                            mb={{ base: 4, md: 6 }}
+                            color="blue.800"
+                        >
                             Մեր Պատմությունը
                         </Heading>
-                        <Text fontSize="lg" mb={4}>
+                        <Text
+                            fontSize={{ base: "md", md: "lg" }}
+                            mb={{ base: 3, md: 4 }}
+                        >
                             Հիմնադրվելով 2005 թվականին՝ մեր իրավաբանական գրասենյակը փոքրիկ պրակտիկայից վերածվել է տարածաշրջանի ամենահարգված իրավաբանական թիմերից մեկի:
                         </Text>
-                        <Text fontSize="lg" mb={4}>
+                        <Text
+                            fontSize={{ base: "md", md: "lg" }}
+                            mb={{ base: 3, md: 4 }}
+                        >
                             Այն, ինչ սկսվել էր որպես երկու մարդու գրասենյակ, վերածվել է բազմաբնույթ ծառայություններ մատուցող գրասենյակի՝ նվիրված իրավաբանների թիմով:
                         </Text>
-                        <Text fontSize="lg">
+                        <Text
+                            fontSize={{ base: "md", md: "lg" }}
+                        >
                             Մեր ողջ ճանապարհի ընթացքում մենք մնացել ենք հավատարիմ մեր հիմնական արժեքներին՝ արդարադատությանը, գերազանցությանը և կլիենտների վրա կենտրոնացված ծառայությանը:
                         </Text>
                     </MotionBox>
@@ -136,17 +157,21 @@ const AboutPage = () => {
                             borderRadius="lg"
                             boxShadow="xl"
                             objectFit="cover"
-                            h="100%"
-                            minH="300px"
+                            h={{ base: "250px", sm: "300px", md: "100%" }}
+                            minH={{ base: "250px", sm: "300px", md: "300px" }}
+                            width="100%"
                         />
                     </MotionBox>
                 </SimpleGrid>
             </Container>
 
-
-            <Box bg="blue.800" color="white" py={16}>
-                <Container maxW="container.lg">
-                    <SimpleGrid columns={{ base: 2, md: 4 }} spacing={10} textAlign="center">
+            <Box bg="blue.800" color="white" py={{ base: 10, md: 16 }}>
+                <Container maxW={{ base: "90%", md: "container.lg" }}>
+                    <SimpleGrid
+                        columns={{ base: 2, sm: 2, md: 4 }}
+                        spacing={{ base: 6, md: 10 }}
+                        textAlign="center"
+                    >
                         {stats.map((stat, index) => (
                             <MotionBox
                                 key={index}
@@ -155,39 +180,30 @@ const AboutPage = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 textAlign="center"
-                                p={6}
+                                p={{ base: 4, md: 6 }}
                                 borderRadius="lg"
                                 _hover={{
                                     transform: "scale(1.05)",
                                     transition: "all 0.3s ease",
                                     bgGradient: "linear(to-b, blue.50, #084d727a)",
                                     boxShadow: "xl"
-
                                 }}
                             >
                                 <Heading
                                     as="h3"
-                                    size="2xl"
-                                    mb={2}
+                                    fontSize={{ base: "xl", sm: "2xl", md: "3xl", lg: "4xl" }}
+                                    mb={{ base: 1, md: 2 }}
                                     color="blue.600"
-                                    sx={{
-
-                                        transition: "all 0.3s ease"
-                                    }}
-                                    _hover={{
-
-                                        color: "blue.500"
-                                    }}
+                                    sx={{ transition: "all 0.3s ease" }}
+                                    _hover={{ color: "blue.500" }}
                                 >
                                     {stat.value}
                                 </Heading>
                                 <Text
-                                    fontSize="lg"
+                                    fontSize={{ base: "sm", md: "lg" }}
                                     fontWeight="medium"
                                     color="white.600"
-                                    _hover={{
-                                        color: "blue.400"
-                                    }}
+                                    _hover={{ color: "blue.400" }}
                                 >
                                     {stat.label}
                                 </Text>
@@ -197,18 +213,25 @@ const AboutPage = () => {
                 </Container>
             </Box>
 
-            <Container maxW="container.lg" py={20}>
-                <Heading as="h2" size="xl" mb={12} textAlign="center" color="blue.800">
+            <Container maxW={{ base: "90%", md: "container.lg", lg: "90%" }} py={{ base: 12, md: 20 }}>
+                <Heading
+                    as="h2"
+                    fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                    mb={{ base: 8, md: 12 }}
+                    textAlign="center"
+                    color="blue.800"
+                >
                     Մեր Արժեքները
                 </Heading>
 
-
                 <SimpleGrid
-                    columns={{ base: 1, md: 3 }}
-                    spacing={10}
-                    mb={10}
+                    columns={{ base: 1, md: 2, lg: 4 }}
+                    spacing={{ base: 8, md: 10 }}
+                    mb={{ base: 8, md: 10 }}
+                    justifyContent={"center"}
+
                 >
-                    {values.slice(0, 3).map((value, index) => (
+                    {values.map((value, index) => (
                         <MotionBox
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -216,7 +239,7 @@ const AboutPage = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             bg="white"
-                            p={8}
+                            p={{ base: 6, md: 8 }}
                             borderRadius="xl"
                             boxShadow="lg"
                             textAlign="center"
@@ -225,72 +248,53 @@ const AboutPage = () => {
                                 transform: "translateY(-8px)",
                                 transition: "all 0.3s ease"
                             }}
-                            minH="350px"
+                            minH={{ base: "300px", md: "350px" }}
                             display="flex"
                             flexDirection="column"
-                            justifyContent="center"
                         >
                             <Icon
                                 as={value.icon}
-                                boxSize={14}
+                                boxSize={{ base: 10, md: 14 }}
                                 margin="auto"
                                 color="blue.600"
-                                mb={6}
+                                mb={{ base: 4, md: 6 }}
                             />
-                            <Heading as="h3" size="md" mb={4} color="blue.800">
+                            <Heading
+                                as="h3"
+                                fontSize={{ base: "lg", md: "xl" }}
+                                mb={{ base: 2, md: 4 }}
+                                color="blue.800"
+                            >
                                 {value.title}
                             </Heading>
-                            <Text fontSize="md" color="gray.600" px={4}>
+                            <Text
+                                fontSize={{ base: "sm", md: "md" }}
+                                color="gray.600"
+                                px={{ base: 2, md: 4 }}
+                            >
                                 {value.description}
                             </Text>
                         </MotionBox>
                     ))}
                 </SimpleGrid>
-
-                <MotionBox
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    bg="white"
-                    p={8}
-                    borderRadius="xl"
-                    boxShadow="lg"
-                    textAlign="center"
-                    _hover={{
-                        boxShadow: "2xl",
-                        transform: "translateY(-8px)",
-                        transition: "all 0.3s ease"
-                    }}
-                    minH="350px"
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="center"
-                    w="100%"
-                    maxW="100%"
-                >
-                    <Icon
-                        as={values[3].icon}
-                        boxSize={14}
-                        color="blue.600"
-                        mb={6}
-                        margin="auto"
-                    />
-                    <Heading as="h3" size="md" mb={4} color="blue.800">
-                        {values[3].title}
-                    </Heading>
-                    <Text fontSize="md" color="gray.600" px={4}>
-                        {values[3].description}
-                    </Text>
-                </MotionBox>
             </Container>
 
-            <Box bg="gray.100" py={20}>
-                <Container maxW="container.lg">
-                    <Heading as="h2" size="xl" mb={12} textAlign="center" color="blue.800">
+            <Box bg="gray.100" py={{ base: 12, md: 20 }}>
+                <Container maxW={{ base: "90%", md: "container.lg" }}>
+                    <Heading
+                        as="h2"
+                        fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                        mb={{ base: 8, md: 12 }}
+                        textAlign="center"
+                        color="blue.800"
+                    >
                         Մեր լավագույն փաստաբանները
                     </Heading>
-                    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} justifyContent="center">
+                    <SimpleGrid
+                        columns={{ base: 1, sm: 2, md: 2 }}
+                        spacing={{ base: 8, md: 8 }}
+                        justifyContent="center"
+                    >
                         {teamMembers.map((member, index) => (
                             <MotionBox
                                 key={index}
@@ -299,26 +303,43 @@ const AboutPage = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 bg="white"
-                                p={6}
+                                p={{ base: 4, md: 6 }}
                                 borderRadius="lg"
                                 boxShadow="md"
                                 textAlign="center"
                                 _hover={{ boxShadow: "xl", transform: "translateY(-5px)" }}
                                 transition="all 0.3s ease"
-                                maxW="400px"
+                                maxW={{ base: "300px", sm: "400px", md: "400px" }}
                                 mx="auto"
                             >
-                                <Avatar size="xl" name={member.name} mb={4} src={member.photo} />
-                                <Heading as="h3" size="md" mb={1} color="blue.800">
+                                <Avatar size={{ base: "lg", md: "xl" }} name={member.name} mb={{ base: 3, md: 4 }} src={member.photo} />
+                                <Heading
+                                    as="h3"
+                                    fontSize={{ base: "md", md: "lg" }}
+                                    mb={{ base: 0.5, md: 1 }}
+                                    color="blue.800"
+                                >
                                     {member.name}
                                 </Heading>
-                                <Text fontWeight="bold" color="blue.600" mb={2}>
+                                <Text
+                                    fontWeight="bold"
+                                    color="blue.600"
+                                    mb={{ base: 1, md: 2 }}
+                                    fontSize={{ base: "sm", md: "md" }}
+                                >
                                     {member.role}
                                 </Text>
-                                <Text fontSize="sm" color="gray.600" mb={1}>
+                                <Text
+                                    fontSize={{ base: "xs", md: "sm" }}
+                                    color="gray.600"
+                                    mb={{ base: 0.5, md: 1 }}
+                                >
                                     <strong>Մասնագիտացում:</strong> {member.specialization}
                                 </Text>
-                                <Text fontSize="sm" color="gray.600">
+                                <Text
+                                    fontSize={{ base: "xs", md: "sm" }}
+                                    color="gray.600"
+                                >
                                     <strong>Փորձ:</strong> {member.experience}
                                 </Text>
                             </MotionBox>
@@ -327,26 +348,34 @@ const AboutPage = () => {
                 </Container>
             </Box>
 
-
-            <Box bg="blue.800" color="white" py={20}>
-                <Container maxW="container.lg" textAlign="center">
+            <Box bg="blue.800" color="white" py={{ base: 12, md: 20 }}>
+                <Container maxW={{ base: "90%", md: "container.lg" }} textAlign="center">
                     <MotionBox
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <Icon as={GiScales} boxSize={12} mb={6} color="yellow.300" />
-                        <Heading as="h2" size="xl" mb={6}>
+                        <Icon as={GiScales} boxSize={{ base: 10, md: 12 }} mb={{ base: 4, md: 6 }} color="yellow.300" />
+                        <Heading
+                            as="h2"
+                            fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                            mb={{ base: 4, md: 6 }}
+                        >
                             Պատրաստ եք քննարկել Ձեր իրավաբանական հարցերը?
                         </Heading>
-                        <Text fontSize="lg" maxW="2xl" mx="auto" mb={8}>
+                        <Text
+                            fontSize={{ base: "md", md: "lg" }}
+                            maxW="2xl"
+                            mx="auto"
+                            mb={{ base: 6, md: 8 }}
+                        >
                             Մեր փորձառու իրավաբանների թիմը պատրաստ է Ձեզ ապահովել մասնագիտական իրավաբանական աջակցությամբ:
                         </Text>
                         <Button
                             bg="black"
-                            size="lg"
-                            px={10}
+                            size={{ base: "md", md: "lg" }}
+                            px={{ base: 8, md: 10 }}
                             color="white"
                             _hover={{ transform: "scale(1.05)" }}
                             transition="all 0.3s ease"

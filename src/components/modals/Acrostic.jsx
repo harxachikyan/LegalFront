@@ -1,17 +1,18 @@
 import { Box, VStack, Text, Divider, Image } from "@chakra-ui/react";
-import logo from "../../assets/images/legalLogo.jpg";
+import logo from "../../assets/images/legalLogo.jpg"; // KEPT AS IS
 import React from "react";
 import { keyframes } from "@emotion/react";
 
+// KEPT AS IS: Animation keyframes
 const glow = keyframes`
-  0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); }
-  50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.9); }
-  100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); }
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); }
+    50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.9); }
+    100% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); }
 `;
 
 const fadeIn = keyframes`
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 `;
 
 const Acrostic = () => {
@@ -23,10 +24,11 @@ const Acrostic = () => {
             bg="linear-gradient(135deg, #1a365d 0%, #15325a 50%, #0d2a52 100%)"
             bgSize="cover"
             bgPosition="center"
-            p={10}
+            p={{ base: 6, md: 10 }}
             borderRadius="xl"
             display="flex"
-            justifyContent="space-between"
+            flexDirection={{ base: "column", md: "row" }}
+            justifyContent={{ base: "center", md: "space-between" }}
             alignItems="center"
             boxShadow="xl"
             position="relative"
@@ -41,16 +43,21 @@ const Acrostic = () => {
                 background: "linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)",
                 zIndex: 0,
             }}
+            maxW="100%"
+            mx="auto"
+            mt={{ base: 8, md: 16 }}
         >
+
             <Box
-                p={8}
+                p={{ base: 4, md: 8 }}
                 borderRadius="xl"
                 position="relative"
                 zIndex="1"
                 flex="1"
-                maxW="50%"
+                maxW={{ base: "100%", md: "50%" }}
+                textAlign={{ base: "center", md: "left" }}
             >
-                <VStack spacing={6} align="start">
+                <VStack spacing={{ base: 3, md: 6 }} align={{ base: "center", md: "start" }}>
                     {["Լավագույն լուծումներ", "Երախտապարտ վստահորդներ", "Գրագետ գործելաոճ", "Անհատական մոտեցումներ", "Լիարժեք նվիրվածություն"].map((word, index) => (
                         <Box
                             key={index}
@@ -58,7 +65,7 @@ const Acrostic = () => {
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
                             <Text
-                                fontSize="xl"
+                                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
                                 color="transparent"
                                 style={{ WebkitTextStroke: "1px white" }}
                                 lineHeight="1.6"
@@ -69,7 +76,7 @@ const Acrostic = () => {
                             >
                                 <Text
                                     as="span"
-                                    fontSize="4xl"
+                                    fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
                                     style={{
                                         WebkitTextStroke: "2px white",
                                         color: "transparent",
@@ -87,15 +94,16 @@ const Acrostic = () => {
                 </VStack>
 
                 <Divider
-                    my={8}
+                    my={{ base: 6, md: 8 }}
                     borderColor="rgba(33, 128, 193, 0.5)"
                     borderWidth="2px"
-                    width="80%"
+                    width={{ base: "60%", md: "80%" }}
+                    mx={{ base: "auto", md: "unset" }} p
                     opacity="0"
                     animation={`${fadeIn} 0.5s ease-out 0.5s forwards`}
                 />
 
-                <VStack spacing={5} align="start" mt={6}>
+                <VStack spacing={{ base: 3, md: 5 }} align={{ base: "center", md: "start" }} mt={{ base: 4, md: 6 }}>
                     {["Տարիների փորձ", "Իրավական գիտելիքներ", "Տարբերվող մոտեցումներ", "Անհրաժեշտ հմտություններ", "Նախանձելի արդյունքներ"].map((word, index) => (
                         <Box
                             key={index}
@@ -103,7 +111,7 @@ const Acrostic = () => {
                             style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                         >
                             <Text
-                                fontSize="xl"
+                                fontSize={{ base: "lg", md: "xl", lg: "2xl" }}
                                 color="transparent"
                                 style={{ WebkitTextStroke: "1px white" }}
                                 lineHeight="1.6"
@@ -114,7 +122,7 @@ const Acrostic = () => {
                             >
                                 <Text
                                     as="span"
-                                    fontSize="4xl"
+                                    fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
                                     style={{
                                         WebkitTextStroke: "2px white",
                                         color: "transparent",
@@ -132,6 +140,7 @@ const Acrostic = () => {
                 </VStack>
             </Box>
 
+
             <Box
                 position="relative"
                 zIndex="1"
@@ -140,12 +149,13 @@ const Acrostic = () => {
                 flexDirection="column"
                 alignItems="center"
                 justifyContent="center"
+                mt={{ base: 10, md: 0 }}
             >
                 <Image
                     src={logo}
                     alt="LegalTitan Logo"
-                    w="70%"
-                    maxW="300px"
+                    w={{ base: "50%", sm: "40%", md: "70%" }}
+                    maxW={{ base: "200px", md: "300px" }}
                     borderRadius="full"
                     boxShadow="0 10px 30px rgba(0, 0, 0, 0.3)"
                     border="4px solid rgba(255, 255, 255, 0.2)"
@@ -154,22 +164,22 @@ const Acrostic = () => {
                         transform: "rotate(0deg)",
                         transition: "transform 0.5s ease",
                     }}
-                    mb={8}
+                    mb={{ base: 6, md: 8 }}
                 />
 
                 <Box
                     bg="rgba(0, 0, 0, 0.3)"
-                    p={6}
+                    p={{ base: 4, md: 6 }}
                     borderRadius="xl"
                     borderLeft="4px solid #2180c1"
                     backdropFilter="blur(5px)"
-                    maxW="80%"
+                    maxW={{ base: "90%", md: "80%" }}
                     animation={`${fadeIn} 0.8s ease-out 1s forwards`}
                     opacity="0"
                 >
                     <Text
                         color="white"
-                        fontSize="lg"
+                        fontSize={{ base: "md", md: "lg" }}
                         fontWeight="semibold"
                         fontStyle="italic"
                         textAlign="center"
@@ -179,10 +189,10 @@ const Acrostic = () => {
                     </Text>
                     <Text
                         textAlign="right"
-                        fontSize="md"
+                        fontSize={{ base: "sm", md: "md" }}
                         fontWeight="bold"
                         color="rgba(255, 255, 255, 0.8)"
-                        mt={3}
+                        mt={{ base: 2, md: 3 }}
                     >
                         Իրվինգ
                     </Text>

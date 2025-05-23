@@ -5,11 +5,11 @@ import {
     ListIcon, Modal, ModalOverlay, ModalContent,
     ModalHeader, ModalCloseButton, ModalBody, useDisclosure
 } from "@chakra-ui/react";
-import { FaBalanceScale, FaUserTie, FaHandshake, FaFileContract, FaBuilding, FaLandmark, FaHome } from "react-icons/fa";
-import { GiFamilyHouse, GiMoneyStack } from "react-icons/gi";
+import { FaBalanceScale, FaUserTie, FaHandshake, FaFileContract, FaBuilding, FaLandmark } from "react-icons/fa";
+import { GiMoneyStack } from "react-icons/gi";
 import { motion } from "framer-motion";
 import { MdOutlineRealEstateAgent } from "react-icons/md";
-import {useState} from "react";
+import { useState } from "react";
 
 const MotionBox = motion(Box);
 
@@ -23,7 +23,7 @@ const ServicesPage = () => {
             icon: FaBalanceScale,
             color: "blue",
             services: [
-                "1.Բանավոր Իրավաբանական խորհրդատվության տրամադրում,",
+                "1.Բանավոր Իրավաբաբանական խորհրդատվության տրամադրում,",
                 "2.Գրավոր Իրավաբանական խորհրդատվության տրամադրում:"
             ]
         },
@@ -36,8 +36,6 @@ const ServicesPage = () => {
                 "Իրավաբանական անձանց կորպորատիվ սպասարկում:"
             ]
         },
-
-
         {
             title: "Պայմանագրային իրավունք",
             icon: FaFileContract,
@@ -46,7 +44,6 @@ const ServicesPage = () => {
                 "1. Բանակցությունների վարում (նաև օտարերկրյա կազմակերպությունների հետ),",
                 "2. Պայմանագրերի կազմում,",
                 "3. Պայմանագրերի վավերացման գործընթացի կազմակերպում:"
-
             ]
         },
         {
@@ -130,7 +127,6 @@ const ServicesPage = () => {
                 "Ներկայացուցչություն բոլոր տեսակի քաղաքացիական, վարչական և սնանկության գործերով :"
             ]
         },
-
     ];
 
     const cardBg = useColorModeValue("white", "gray.800");
@@ -145,10 +141,9 @@ const ServicesPage = () => {
 
     return (
         <Box>
-
             <Box
                 position="relative"
-                height="700px"
+                height={{ base: "400px", md: "500px", lg: "700px" }}
                 bgImage="url('/assets/images/services_back.jpg')"
                 bgSize="cover"
                 bgPosition="center"
@@ -166,15 +161,19 @@ const ServicesPage = () => {
                     bottom={0}
                     bg="rgba(0, 0, 0, 0.6)"
                 />
-                <Container maxW="container.lg" position="relative" zIndex={1}>
+                <Container maxW={{ base: "90%", md: "container.md", lg: "container.lg" }} position="relative" zIndex={1}>
                     <SlideFade in={true} offsetY={20}>
-                        <Heading as="h1" size="2xl" mb={4} fontStyle="italic">
+                        <Heading
+                            as="h1"
+                            fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                            mb={{ base: 3, md: 4 }}
+                            fontStyle="italic"
+                        >
                             Պրոֆեսիոնալ Իրավաբանական և փաստաբանական ծառայություններ
                         </Heading>
-
                         <Button
                             colorScheme="blue"
-                            size="lg"
+                            size={{ base: "md", md: "lg" }}
                             onClick={() => document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' })}
                         >
                             Դիտել ծառայությունները
@@ -183,23 +182,23 @@ const ServicesPage = () => {
                 </Container>
             </Box>
 
-
-            <Container maxW="container.lg" py={16} id="services-section">
-                <Box textAlign="center" mb={12}>
-                    <Badge colorScheme="blue" fontSize="lg" px={4} py={1} borderRadius="full" mb={4}>
-                         Ծառայություններ
+            <Container maxW={{ base: "90%", md: "container.lg" }} py={{ base: 10, md: 16 }} id="services-section">
+                <Box textAlign="center" mb={{ base: 8, md: 12 }}>
+                    <Badge
+                        colorScheme="blue"
+                        fontSize={{ base: "md", md: "lg" }}
+                        px={{ base: 3, md: 4 }}
+                        py={{ base: 0.5, md: 1 }}
+                        borderRadius="full"
+                        mb={{ base: 3, md: 4 }}
+                    >
+                        Ծառայություններ
                     </Badge>
-                    {/*<Heading as="h2" size="xl" mb={4}>*/}
-                    {/*    Իրավաբանական աջակցության ոլորտներ*/}
-                    {/*</Heading>*/}
-                    {/*<Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">*/}
-                    {/*    Մենք ապահովում ենք բազմաբնույթ իրավաբանական ծառայություններ՝ հաճախորդների բոլոր պահանջմունքները բավարարելու համար*/}
-                    {/*</Text>*/}
                 </Box>
 
                 <Grid
-                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
-                    gap={6}
+                    templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+                    gap={{ base: 6, md: 8 }}
                 >
                     {serviceCategories.map((category, index) => (
                         <MotionBox
@@ -212,11 +211,11 @@ const ServicesPage = () => {
                             <ScaleFade in={true} delay={index * 0.1}>
                                 <Box
                                     bg={cardBg}
-                                    p={6}
+                                    p={{ base: 4, md: 6 }}
                                     borderRadius="lg"
                                     boxShadow="md"
                                     height="100%"
-                                    minHeight="350px" // Set a fixed minimum height
+                                    minHeight={{ base: "280px", sm: "300px", md: "350px" }}
                                     display="flex"
                                     flexDirection="column"
                                     borderLeft="4px solid"
@@ -229,45 +228,59 @@ const ServicesPage = () => {
                                     }}
                                     onClick={() => handleCategoryClick(category)}
                                     cursor="pointer"
-                                    position="relative" // For absolute positioning of button
+                                    position="relative"
                                 >
-                                    <Flex align="center" mb={4}>
+                                    <Flex align="center" mb={{ base: 3, md: 4 }}>
                                         <Icon
                                             as={category.icon}
-                                            boxSize={8}
+                                            boxSize={{ base: 6, md: 8 }}
                                             color={`${category.color}.500`}
-                                            mr={3}
+                                            mr={{ base: 2, md: 3 }}
                                         />
-                                        <Heading as="h3" size="md" color={`${category.color}.600`}>
+                                        <Heading
+                                            as="h3"
+                                            fontSize={{ base: "md", md: "lg" }}
+                                            color={`${category.color}.600`}
+                                        >
                                             {category.title}
                                         </Heading>
                                     </Flex>
 
-                                    <Box flex="1" overflow="hidden" mb={4}>
-                                        <List spacing={2}>
+                                    <Box flex="1" overflow="hidden" mb={{ base: 3, md: 4 }}>
+                                        <List spacing={{ base: 1, md: 2 }}>
                                             {category.services.slice(0, 3).map((service, i) => (
                                                 <ListItem key={i} display="flex" alignItems="flex-start">
                                                     <ListIcon
                                                         as={FaBalanceScale}
                                                         color={`${category.color}.400`}
                                                         mt={1}
+                                                        boxSize={{ base: 3, md: 4 }}
                                                     />
-                                                    <Text noOfLines={2}>{service}</Text>
+                                                    <Text
+                                                        noOfLines={2}
+                                                        fontSize={{ base: "sm", md: "md" }}
+                                                    >
+                                                        {service}
+                                                    </Text>
                                                 </ListItem>
                                             ))}
                                         </List>
 
                                         {category.services.length > 3 && (
-                                            <Text mt={2} color={`${category.color}.500`} fontWeight="medium">
+                                            <Text
+                                                mt={2}
+                                                color={`${category.color}.500`}
+                                                fontWeight="medium"
+                                                fontSize={{ base: "sm", md: "md" }}
+                                            >
                                                 + {category.services.length - 3} այլ ծառայություններ...
                                             </Text>
                                         )}
                                     </Box>
                                     {category.services.length > 3 && (
-
                                         <Button
                                             mt="auto"
-                                            size="sm"
+                                            size={{ base: "sm", md: "md" }}
                                             variant="outline"
                                             colorScheme={category.color}
                                             alignSelf="flex-start"
@@ -275,8 +288,6 @@ const ServicesPage = () => {
                                             Տեսնել ավելին
                                         </Button>
                                     )}
-
-
                                 </Box>
                             </ScaleFade>
                         </MotionBox>
@@ -284,32 +295,34 @@ const ServicesPage = () => {
                 </Grid>
             </Container>
 
-
-            <Modal isOpen={isOpen} onClose={onClose} size="xl">
+            <Modal isOpen={isOpen} onClose={onClose} size={{ base: "full", md: "xl" }}>
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>
+                    <ModalHeader
+                        fontSize={{ base: "lg", md: "xl" }}
+                    >
                         <Flex align="center">
                             <Icon
                                 as={selectedCategory?.icon}
-                                boxSize={6}
+                                boxSize={{ base: 5, md: 6 }}
                                 color={`${selectedCategory?.color}.500`}
-                                mr={3}
+                                mr={{ base: 2, md: 3 }}
                             />
                             {selectedCategory?.title}
                         </Flex>
                     </ModalHeader>
                     <ModalCloseButton />
-                    <ModalBody pb={6}>
-                        <List spacing={3}>
+                    <ModalBody pb={{ base: 4, md: 6 }}>
+                        <List spacing={{ base: 2, md: 3 }}>
                             {selectedCategory?.services.map((service, index) => (
-                                <ListItem key={index} display="flex" alignItems="flex-start" py={2}>
+                                <ListItem key={index} display="flex" alignItems="flex-start" py={{ base: 1, md: 2 }}>
                                     <ListIcon
                                         as={FaBalanceScale}
                                         color={`${selectedCategory?.color}.400`}
                                         mt={1}
+                                        boxSize={{ base: 3, md: 4 }}
                                     />
-                                    <Text>{service}</Text>
+                                    <Text fontSize={{ base: "sm", md: "md" }}>{service}</Text>
                                 </ListItem>
                             ))}
                         </List>
@@ -317,19 +330,27 @@ const ServicesPage = () => {
                 </ModalContent>
             </Modal>
 
-
-            <Box bg="blue.50" py={16}>
-                <Container maxW="container.lg" textAlign="center">
+            <Box bg="blue.50" py={{ base: 10, md: 16 }}>
+                <Container maxW={{ base: "90%", md: "container.lg" }} textAlign="center">
                     <Fade in={true}>
-                        <Heading as="h2" size="xl" mb={4}>
+                        <Heading
+                            as="h2"
+                            fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                            mb={{ base: 3, md: 4 }}
+                        >
                             Ունե՞ք իրավական խնդիր
                         </Heading>
-                        <Text fontSize="lg" mb={8} maxW="2xl" mx="auto">
+                        <Text
+                            fontSize={{ base: "md", md: "lg" }}
+                            mb={{ base: 6, md: 8 }}
+                            maxW="2xl"
+                            mx="auto"
+                        >
                             Կապ հաստատեք մեզ հետ և մենք կլուծենք այն:
                         </Text>
                         <Button
                             colorScheme="blue"
-                            size="lg"
+                            size={{ base: "md", md: "lg" }}
                             leftIcon={<FaHandshake />}
                             as="a"
                             href="/contact"

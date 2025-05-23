@@ -2,12 +2,13 @@
 import React from "react";
 import {Box, Heading, Text, Container, Icon, Button} from "@chakra-ui/react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"; // KEPT AS IS
+import "slick-carousel/slick/slick-theme.css"; // KEPT AS IS
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCommentDots} from "@fortawesome/free-solid-svg-icons";
 
 const HeroCarousel = () => {
+    // KEPT AS IS: Slider settings
     const sliderSettings = {
         dots: true,
         infinite: true,
@@ -37,13 +38,19 @@ const HeroCarousel = () => {
     ];
 
     return (
-        <Box as="section" position="relative" height={{ base: "400px", md: "500px" }} overflow="hidden">
+        <Box
+            as="section"
+            position="relative"
+            // Responsive height
+            height={{ base: "300px", sm: "350px", md: "450px", lg: "550px", xl: "600px" }}
+            overflow="hidden"
+        >
             <Slider {...sliderSettings}>
                 {carouselItems.map((item, index) => (
                     <Box
                         key={index}
                         position="relative"
-                        height={{ base: "400px", md: "500px" }}
+                        height={{ base: "300px", sm: "350px", md: "450px", lg: "550px", xl: "600px" }}
                         backgroundImage={`url(${item.bgImage})`}
                         backgroundSize="cover"
                         backgroundPosition="center"
@@ -59,23 +66,27 @@ const HeroCarousel = () => {
                             display="flex"
                             alignItems="center"
                             justifyContent="center"
+                            px={{ base: 4, md: 8 }}
                         >
-                            <Container maxW="container.xl" textAlign="center">
+                            <Container maxW={{ base: "90%", md: "container.lg", xl: "container.xl" }} textAlign="center">
                                 <Heading
                                     as="h1"
-                                    fontSize={{ base: "2xl", md: "4xl" }}
+
+                                    fontSize={{ base: "xl", sm: "2xl", md: "3xl", lg: "4xl", xl: "5xl" }}
                                     color="white"
-                                    mb={4}
+                                    mb={{ base: 2, md: 4 }}
                                     textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)"
                                 >
                                     {item.title}
                                 </Heading>
                                 <Text
-                                    fontSize={{ base: "lg", md: "xl" }}
+
+                                    fontSize={{ base: "md", sm: "lg", md: "xl", lg: "2xl" }}
                                     color="white"
-                                    maxW="800px"
+                                    maxW={{ base: "90%", md: "800px" }}
                                     mx="auto"
                                     textShadow="1px 1px 2px rgba(0, 0, 0, 0.5)"
+                                    mb={{ base: 4, md: 6 }}
                                 >
                                     {item.description}
                                 </Text>
@@ -83,9 +94,11 @@ const HeroCarousel = () => {
                                     bg="#187bc0"
                                     color="white"
                                     border="none"
-                                    padding="10px"
                                     borderRadius="5px"
-                                    size="lg"
+
+                                    size={{ base: "md", md: "lg" }}
+                                    px={{ base: 6, md: 10 }}
+                                    py={{ base: 2, md: 3 }}
                                     _hover={{ bg: "#1565a3", transform: "translateY(-2px)" }}
                                     leftIcon={<Icon as={FontAwesomeIcon} icon={faCommentDots} />}
                                 >

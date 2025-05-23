@@ -5,8 +5,8 @@ import { FaComment } from "react-icons/fa";
 import { useUser } from "../../../core/hooks";
 import { useLocation } from "react-router-dom";
 
-const Nav = React.lazy(() => import("../../../components/nav/Nav"));
-
+// const Nav = React.lazy(() => import("../../../components/nav/Nav"));
+import Nav from "../../../components/nav/Nav";
 const MainLayout = ({ children, showFooter }) => {
 
     const toast = useToast();

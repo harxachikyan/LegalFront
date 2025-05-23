@@ -4,14 +4,15 @@ import {
     Heading,
     Text,
     useDisclosure,
-    SlideFade,
-    useColorModeValue
+    SlideFade, // SlideFade is not directly used in the provided code, but kept if you intend to use it.
+    useColorModeValue // useColorModeValue is not directly used, but kept if you intend to use it.
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import RecentCases from '../../components/modals/RecentCases';
-import CaseModal from '../../components/modals/CaseModal';
+import CaseModal from '../../components/modals/CaseModal'; //
 import GerbIcon from '../../assets/images/gerb.png'
 import Marquee from "../../components/modals/Marquee";
+
 const WorksPage = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [selectedCase, setSelectedCase] = useState(null);
@@ -66,9 +67,8 @@ const WorksPage = () => {
             date: '29.04.2024',
             description: 'Քաղաքացու կողմից Երևանի քաղաքապետարան  դիմում էր  ներկայացվել ՝ ՀՀ, քաղաք Երևան, Դավթաշեն, ** փողոց, թիվ * տանը կից գտնվող ինքնակամ շինությունը և դրանով ծանրաբեռնված հողամասն օրինականացնելու պահանջով։ \n' +
                 'Երևանի քաղաքապետարանը   23․05․2023 թվականի թիվ 18/29320-23 պատասխան գրությամբ մերժել էր քաղաքացու խնդրանքն այն հիմնավորմամբ, որ քննարկվող շինությունը գտնվում է կառուցապատման գծից դուրս։ \n' +
-                'Մեր Ընկերության փաստաբանների կողմից ՀՀ Վարչական դատարան էր ներկայացվել պարտավորեցման հայց, որի արդյունքում ՀՀ Վարչական դատարանը 19.03.2024թ. կայացված վճռով պարտավորեցրել է Երևանի քաղաքապետարանին ընդունել բարենպաստ վարչական ակտ՝ Ա․ Ա․-ի դիմումի հիմքով ք. Երևան, Դավթաշեն, * փողոց, թիվ * տանը կից ինքնակամ շինությունն օրինականացնելու վերաբերյալ'
+                'Մեր Ընկերության փաստաբանների կողմից ՀՀ Վարչական դատարան էր ներկայացվել պարտավորեցման հայց, որի արդյունքում ՀՀ Վարչական դատարանը 19.03.202Նթ. կայացված վճռով պարտավորեցրել է Երևանի քաղաքապետարանին ընդունել բարենպաստ վարչական ակտ՝ Ա․ Ա․-ի դիմումի հիմքով ք. Երևան, Դավթաշեն, * փողոց, թիվ * տանը կից ինքնակամ շինությունն օրինականացնելու վերաբերյալ'
         },
-
     ];
 
     const handleCaseClick = (caseItem) => {
@@ -85,10 +85,15 @@ const WorksPage = () => {
                 subtitle="Մեր իրավաբանական թիմի կողմից իրականացված ամենանշանակալի դատական գործերը"
                 bgColor="#1a365d"
                 speed={20}
+
             />
 
 
-            <Container maxW={'container.xl'} py={20}>
+            <Container
+                maxW={{ base: "95%", md: "container.lg", xl: "container.xl" }}
+                py={{ base: 10, md: 20 }}
+            >
+
                 <RecentCases cases={cases} onCaseClick={handleCaseClick} />
             </Container>
 

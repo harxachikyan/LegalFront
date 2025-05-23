@@ -32,7 +32,6 @@ const ConnectPage = () => {
         }));
     };
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -65,7 +64,12 @@ const ConnectPage = () => {
 
     return (
         <Box>
-            <Box position="relative" width="100%" height="600px" mb={10}>
+            <Box
+                position="relative"
+                width="100%"
+                height={{ base: "400px", md: "500px", lg: "600px" }}
+                mb={{ base: 6, md: 10 }}
+            >
                 <Image
                     src="/assets/images/contact-wrapper.jpg"
                     alt="Law Firm Banner"
@@ -85,19 +89,26 @@ const ConnectPage = () => {
                     alignItems="center"
                     justifyContent="center"
                     textAlign="center"
-                    px={4}
+                    px={{ base: 4, md: 8 }}
                 >
-                    <Box maxW="2xl">
-                        <Heading as="h1" size="2xl" color="white" mb={4}>
+                    <Box maxW={{ base: "90%", md: "2xl" }}>
+                        <Heading
+                            as="h1"
+                            fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                            color="white"
+                            mb={{ base: 3, md: 4 }}
+                        >
                             Legal Titan իրավաբանական ընկերություն
                         </Heading>
-                        <Text fontSize="xl" color="white" mb={6} >
-
-
+                        <Text
+                            fontSize={{ base: "md", md: "xl" }}
+                            color="white"
+                            mb={{ base: 4, md: 6 }}
+                        >
                         </Text>
                         <Button
                             colorScheme="blue"
-                            size="lg"
+                            size={{ base: "md", md: "lg" }}
                             onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
                         >
                             Կապ մեզ հետ
@@ -106,93 +117,100 @@ const ConnectPage = () => {
                 </Box>
             </Box>
 
-            <Container maxW="container.lg" py={10} centerContent>
-                {/*<ProgressStats />*/}
-
-                <Flex direction={{ base: "column", md: "row" }} gap={10} width="100%">
-                    <Box flex={1} bg="white" p={8} borderRadius="lg" boxShadow="md" id="contact-form">
-                        <Heading as="h2" size="lg" mb={6} color="blue.700">
+            <Container maxW={{ base: "95%", lg: "container.lg" }} py={{ base: 6, md: 10 }} centerContent>
+                <Flex
+                    direction={{ base: "column", md: "row" }}
+                    gap={{ base: 8, md: 10 }}
+                    width="100%"
+                >
+                    <Box flex={1} bg="white" p={{ base: 6, md: 8 }} borderRadius="lg" boxShadow="md" id="contact-form">
+                        <Heading
+                            as="h2"
+                            fontSize={{ base: "xl", md: "2xl" }}
+                            mb={{ base: 5, md: 6 }}
+                            color="blue.700"
+                        >
                             Կապ մեզ հետ
                         </Heading>
 
                         <form onSubmit={handleSubmit}>
-                            <VStack spacing={5}>
+                            <VStack spacing={{ base: 4, md: 5 }}>
                                 <FormControl isRequired>
-                                    <FormLabel>Անուն </FormLabel>
+                                    <FormLabel fontSize={{ base: "sm", md: "md" }}>Անուն </FormLabel>
                                     <Input
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         placeholder="Ձեր անունը"
-                                        size="lg"
+                                        size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                     />
-                                    <FormLabel> Ազգանուն</FormLabel>
+                                    <FormLabel fontSize={{ base: "sm", md: "md" }} mt={3}> Ազգանուն</FormLabel>
                                     <Input
                                         name="lastname"
                                         value={formData.lastname}
                                         onChange={handleChange}
                                         placeholder="Ձեր ազգանունը"
-                                        size="lg"
+                                        size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                     />
-                                    <FormLabel>Հայրանուն</FormLabel>
+                                    <FormLabel fontSize={{ base: "sm", md: "md" }} mt={3}>Հայրանուն</FormLabel>
                                     <Input
                                         name="surname"
                                         value={formData.surname}
                                         onChange={handleChange}
                                         placeholder="Ձեր հայրանունը"
-                                        size="lg"
+                                        size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                     />
                                 </FormControl>
 
                                 <FormControl isRequired>
-                                    <FormLabel>Էլեկտրոնային հասցե</FormLabel>
+                                    <FormLabel fontSize={{ base: "sm", md: "md" }}>Էլեկտրոնային հասցե</FormLabel>
                                     <Input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="Ձեր էլ. փոստի հասցեն"
-                                        size="lg"
+                                        size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                     />
                                 </FormControl>
 
                                 <FormControl>
-                                    <FormLabel>Հեռախոսահամար</FormLabel>
+                                    <FormLabel fontSize={{ base: "sm", md: "md" }}>Հեռախոսահամար</FormLabel>
                                     <Input
                                         type="tel"
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
                                         placeholder="Ձեր հեռախոսահամարը"
-                                        size="lg"
+                                        size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                     />
                                 </FormControl>
 
                                 <FormControl>
-                                    <FormLabel>Հարցի տեսակը</FormLabel>
+                                    <FormLabel fontSize={{ base: "sm", md: "md" }}>Հարցի տեսակը</FormLabel>
                                     <Input
                                         name="caseType"
                                         value={formData.caseType}
                                         onChange={handleChange}
                                         placeholder="Իրավական հարցի տեսակը"
-                                        size="lg"
+                                        size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                     />
                                 </FormControl>
 
                                 <FormControl isRequired>
-                                    <FormLabel>Ձեր հաղորդագրությունը</FormLabel>
+                                    <FormLabel fontSize={{ base: "sm", md: "md" }}>Ձեր հաղորդագրությունը</FormLabel>
                                     <Textarea
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
                                         placeholder="Նկարագրեք Ձեր հարցը..."
-                                        size="lg"
+                                        size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                         rows={6}
                                     />
@@ -201,7 +219,7 @@ const ConnectPage = () => {
                                 <Button
                                     leftIcon={<FaEnvelope />}
                                     colorScheme="blue"
-                                    size="lg"
+                                    size={{ base: "md", md: "lg" }}
                                     width="full"
                                     type="submit"
                                     isLoading={isSubmitting}
@@ -213,24 +231,29 @@ const ConnectPage = () => {
                         </form>
                     </Box>
 
-                    <Box flex={1} bg="blue.50" p={8} borderRadius="lg">
-                        <Heading as="h2" size="lg" mb={6} color="blue.700">
+                    <Box flex={1} bg="blue.50" p={{ base: 6, md: 8 }} borderRadius="lg">
+                        <Heading
+                            as="h2"
+                            fontSize={{ base: "xl", md: "2xl" }}
+                            mb={{ base: 5, md: 6 }}
+                            color="blue.700"
+                        >
                             Կոնտակտային տվյալներ
                         </Heading>
 
-                        <VStack spacing={6} align="flex-start">
+                        <VStack spacing={{ base: 5, md: 6 }} align="flex-start">
                             <Box>
-                                <HStack spacing={4} mb={2}>
-                                    <Icon as={FaMapMarkerAlt} color="blue.600" boxSize={5} />
-                                    <Text fontWeight="semibold">Գրասենյակի հասցե</Text>
+                                <HStack spacing={{ base: 3, md: 4 }} mb={2}>
+                                    <Icon as={FaMapMarkerAlt} color="blue.600" boxSize={{ base: 4, md: 5 }} />
+                                    <Text fontWeight="semibold" fontSize={{ base: "md", md: "lg" }}>Գրասենյակի հասցե</Text>
                                 </HStack>
-                                <Text pl={9} color="gray.600">
-                                   ՀՀ, ք. Երևան, Ավան, Մարշալ Բաբաջանյան 2-րդ նրբ./ընտանեկան այգու հարևանությամբ/  <br />
+                                <Text pl={{ base: 7, md: 9 }} color="gray.600" fontSize={{ base: "sm", md: "md" }}>
+                                    ՀՀ, ք. Երևան, Ավան, Մարշալ Բաբաջանյան 2-րդ նրբ./ընտանեկան այգու հարևանությամբ/ <br />
                                     Երևան
                                 </Text>
                                 <Button
                                     mt={2}
-                                    size="sm"
+                                    size={{ base: "sm", md: "md" }}
                                     variant="link"
                                     colorScheme="blue"
                                     onClick={onMapOpen}
@@ -240,11 +263,11 @@ const ConnectPage = () => {
                             </Box>
 
                             <Box>
-                                <HStack spacing={4} mb={2}>
-                                    <Icon as={FaPhone} color="blue.600" boxSize={5} />
-                                    <Text fontWeight="semibold">Հեռախոսահամարներ</Text>
+                                <HStack spacing={{ base: 3, md: 4 }} mb={2}>
+                                    <Icon as={FaPhone} color="blue.600" boxSize={{ base: 4, md: 5 }} />
+                                    <Text fontWeight="semibold" fontSize={{ base: "md", md: "lg" }}>Հեռախոսահամարներ</Text>
                                 </HStack>
-                                <Text pl={9} color="gray.600">
+                                <Text pl={{ base: 7, md: 9 }} color="gray.600" fontSize={{ base: "sm", md: "md" }}>
                                     +374 77 531309<br/>
                                     +374 55 673001<br/>
                                     +374 43 134362
@@ -252,57 +275,33 @@ const ConnectPage = () => {
                             </Box>
 
                             <Box>
-                                <HStack spacing={4} mb={2}>
-                                    <Icon as={FaEnvelope} color="blue.600" boxSize={5} />
-                                    <Text fontWeight="semibold">Էլեկտրոնային հասցե</Text>
+                                <HStack spacing={{ base: 3, md: 4 }} mb={2}>
+                                    <Icon as={FaEnvelope} color="blue.600" boxSize={{ base: 4, md: 5 }} />
+                                    <Text fontWeight="semibold" fontSize={{ base: "md", md: "lg" }}>Էլեկտրոնային հասցե</Text>
                                 </HStack>
-                                <Text pl={9} color="gray.600">
+                                <Text pl={{ base: 7, md: 9 }} color="gray.600" fontSize={{ base: "sm", md: "md" }}>
                                     Titanlegal66@gmail.com<br />
                                 </Text>
                             </Box>
 
                             <Box>
-                                <HStack spacing={4} mb={2}>
-                                    <Icon as={FaClock} color="blue.600" boxSize={5} />
-                                    <Text fontWeight="semibold">Աշխատանքային օրեր</Text>
+                                <HStack spacing={{ base: 3, md: 4 }} mb={2}>
+                                    <Icon as={FaClock} color="blue.600" boxSize={{ base: 4, md: 5 }} />
+                                    <Text fontWeight="semibold" fontSize={{ base: "md", md: "lg" }}>Աշխատանքային օրեր</Text>
                                 </HStack>
-                                <Text pl={9} color="gray.600">
+                                <Text pl={{ base: 7, md: 9 }} color="gray.600" fontSize={{ base: "sm", md: "md" }}>
                                     Երկուշաբթի - Ուրբաթ<br />
-
                                 </Text>
-                                <HStack spacing={4} mb={2} mt={2}>
-                                    <Icon as={FaClock} color="blue.600" boxSize={5} />
-                                    <Text fontWeight="semibold">Աշխատանքային ժամեր</Text>
+                                <HStack spacing={{ base: 3, md: 4 }} mb={2} mt={{ base: 1, md: 2 }}>
+                                    <Icon as={FaClock} color="blue.600" boxSize={{ base: 4, md: 5 }} />
+                                    <Text fontWeight="semibold" fontSize={{ base: "md", md: "lg" }}>Աշխատանքային ժամեր</Text>
                                 </HStack>
-                                <Text pl={9} color="gray.600">
+                                <Text pl={{ base: 7, md: 9 }} color="gray.600" fontSize={{ base: "sm", md: "md" }}>
                                     09:00 - 18:00<br />
                                 </Text>
-
                             </Box>
 
-                            <Divider borderColor="gray.300" />
-
-                            <Box>
-                                {/*<Heading as="h3" size="md" mb={4} color="blue.700">*/}
-                                {/*    Ծառայություններ*/}
-                                {/*</Heading>*/}
-                                {/*<VStack spacing={3} align="flex-start">*/}
-                                {/*    {practiceAreas.map((area, index) => (*/}
-                                {/*        <HStack key={index} spacing={3}>*/}
-                                {/*            <Icon as={area.icon} color="blue.600" />*/}
-                                {/*            <Text>{area.name}</Text>*/}
-                                {/*        </HStack>*/}
-                                {/*    ))}*/}
-                                {/*</VStack>*/}
-                                {/*<Button*/}
-                                {/*    mt={4}*/}
-                                {/*    variant="outline"*/}
-                                {/*    colorScheme="blue"*/}
-                                {/*    onClick={onServicesOpen}*/}
-                                {/*>*/}
-                                {/*    Դիտել բոլոր ծառայությունները*/}
-                                {/*</Button>*/}
-                            </Box>
+                            <Divider borderColor="gray.300" width="100%" />
                         </VStack>
                     </Box>
                 </Flex>

@@ -13,9 +13,9 @@ import {
     Text,
     Stack,
     Divider,
-    useColorModeValue,
+    useColorModeValue, // KEPT AS IS
     Flex,
-    Avatar
+    Avatar // Avatar is not used in this component, but kept if it's meant for future use.
 } from '@chakra-ui/react';
 
 const CaseModal = ({ isOpen, onClose, caseData }) => {
@@ -28,60 +28,58 @@ const CaseModal = ({ isOpen, onClose, caseData }) => {
         <Modal
             isOpen={isOpen}
             onClose={onClose}
-            size="xl"
+            size={{ base: "full", sm: "md", md: "xl" }}
             isCentered
             motionPreset="slideInBottom"
         >
             <ModalOverlay bg="blackAlpha.600" backdropFilter="blur(4px)" />
             <ModalContent
-                borderRadius="2xl"
+                borderRadius={{ base: "none", sm: "2xl" }}
                 overflow="hidden"
                 bg={modalBg}
-                maxW={{ base: '95%', md: '800px' }}
+                maxW={{ base: '100%', sm: '95%', md: '800px' }}
+                minH={{ base: "100vh", sm: "auto" }}
             >
-                <ModalHeader pb={0}>
-                    <Heading size="lg" mb={2}>
+                <ModalHeader pb={{ base: 2, md: 0 }}>
+                    <Heading size={{ base: "md", md: "lg", lg: "xl" }} mb={{ base: 1, md: 2 }}>
                         {caseData.title}
-
                     </Heading>
                     <Badge
                         colorScheme="blue"
-                        px={3}
-                        py={1}
+                        px={{ base: 2, md: 3 }}
+                        py={{ base: 0.5, md: 1 }}
                         borderRadius="full"
-                        fontSize="sm"
+                        fontSize={{ base: "xs", md: "sm" }}
                     >
                         {caseData.date}
-
-
                     </Badge>
-                    <Divider my={4} borderColor={accentColor} opacity="0.5" />
-
+                    <Divider my={{ base: 2, md: 4 }} borderColor={accentColor} opacity="0.5" />
                 </ModalHeader>
                 <ModalCloseButton
-                    size="lg"
+                    size={{ base: "md", md: "lg" }}
                     borderRadius="full"
-                    top={4}
-                    right={4}
+                    top={{ base: 3, md: 4 }}
+                    right={{ base: 3, md: 4 }}
                 />
-                <ModalBody>
+                <ModalBody py={{ base: 2, md: 4 }}>
                     <Stack spacing={4}>
                         <Text
                             whiteSpace="pre-line"
                             lineHeight="tall"
-                            fontSize="md"
+                            fontSize={{ base: "sm", md: "md", lg: "lg" }}
+                            px={{ base: 2, md: 0 }}
                         >
                             {caseData.description}
                         </Text>
                     </Stack>
                 </ModalBody>
-                <ModalFooter>
+                <ModalFooter pt={{ base: 2, md: 4 }}>
                     <Flex justify="center" width="100%">
                         <Button
                             colorScheme="blue"
-                            size="md"
+                            size={{ base: "md", md: "lg" }}
                             borderRadius="full"
-                            px={10}
+                            px={{ base: 8, md: 10 }}
                             onClick={onClose}
                             _hover={{
                                 transform: 'scale(1.05)',
