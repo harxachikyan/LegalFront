@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Flex, Image, Text, VStack, HStack, Icon, Link } from "@chakra-ui/react";
-import { FaFacebook, FaTwitter, FaInstagram, FaHeart, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaFacebook, FaEnvelope, FaInstagram, FaHeart, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import logo from "../../assets/images/legalLogo.jpg";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -31,15 +31,19 @@ const Footer = () => (
                             fontSize="32px"
                             _hover={{ transform: "scale(1.1)" }}
                             transition="all 0.3s"
+                            onClick={() => window.open('https://www.facebook.com/profile.php?id=61557661694303', '_blank')}
+
                         />
                     </Link>
                     <Link href="#" _hover={{ color: "#187bc0" }} transition="all 0.3s">
                         <Icon
-                            as={FaTwitter}
+                            as={FaEnvelope}
                             color="white"
                             fontSize="32px"
                             _hover={{ transform: "scale(1.1)" }}
                             transition="all 0.3s"
+                            onClick={() => window.open('https://mail.google.com/')}
+
                         />
                     </Link>
                     <Link href="#" _hover={{ color: "#187bc0" }} transition="all 0.3s">
@@ -49,6 +53,7 @@ const Footer = () => (
                             fontSize="32px"
                             _hover={{ transform: "scale(1.1)" }}
                             transition="all 0.3s"
+                            onClick={() => window.open('https://www.instagram.com/legal_titan_llc______/', '_blank')}
                         />
                     </Link>
                 </HStack>
@@ -56,15 +61,16 @@ const Footer = () => (
 
             <VStack align="flex-start" spacing={4}>
                 <Text fontSize="lg" fontWeight="bold" mb={2}>Արագ Հղումներ</Text>
+                <RouterLink to="/">
+                    <Text _hover={{ color: "white" ,textShadow: "0 0 10px rgba(255,255,255,0.5)"}} transition="all 0.3s" color="white">Գլխավոր</Text>
+                </RouterLink>
                 <RouterLink to="/about">
                     <Text _hover={{ color: "white" ,textShadow: "0 0 10px rgba(255,255,255,0.5)"}} transition="all 0.3s" color="white">Մեր Մասին</Text>
                 </RouterLink>
                 <RouterLink to="/services">
                     <Text _hover={{ color: "white",textShadow: "0 0 10px rgba(255,255,255,0.5)" }} transition="all 0.3s" color="white">Ծառայություններ</Text>
                 </RouterLink>
-                <RouterLink to="/team">
-                    <Text _hover={{ color: "white" ,textShadow: "0 0 10px rgba(255,255,255,0.5)"}} transition="all 0.3s" color="white">Մեր Թիմը</Text>
-                </RouterLink>
+
                 <RouterLink to="/contact">
                     <Text _hover={{ color: "white" ,textShadow: "0 0 10px rgba(255,255,255,0.5)"}} transition="all 0.3s" color="white">Կապ</Text>
                 </RouterLink>

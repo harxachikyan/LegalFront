@@ -15,7 +15,7 @@ import {
     Icon,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-
+import { useNavigate } from 'react-router-dom';
 import { FaBalanceScale, FaGavel, FaHandshake, FaUserTie } from "react-icons/fa";
 import { GiScales } from "react-icons/gi";
 import ArenImg from "../../assets/images/Aren.png";
@@ -71,7 +71,7 @@ const AboutPage = () => {
             photo: AshotImg
         }
     ];
-
+    const navigate = useNavigate();
     return (
         <Box bg="gray.50">
             <Box
@@ -379,6 +379,8 @@ const AboutPage = () => {
                             color="white"
                             _hover={{ transform: "scale(1.05)" }}
                             transition="all 0.3s ease"
+                            onClick={() => navigate('/contact')}
+
                         >
                             Կապ մեզ հետ
                         </Button>

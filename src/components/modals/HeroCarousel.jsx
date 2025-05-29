@@ -1,14 +1,15 @@
-// components/modals/HeroCarousel.jsx
+
 import React from "react";
 import {Box, Heading, Text, Container, Icon, Button} from "@chakra-ui/react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; // KEPT AS IS
-import "slick-carousel/slick/slick-theme.css"; // KEPT AS IS
+import { Link } from 'react-router-dom';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCommentDots} from "@fortawesome/free-solid-svg-icons";
 
 const HeroCarousel = () => {
-    // KEPT AS IS: Slider settings
+
     const sliderSettings = {
         dots: true,
         infinite: true,
@@ -90,6 +91,7 @@ const HeroCarousel = () => {
                                 >
                                     {item.description}
                                 </Text>
+                                <Link to="/contact">
                                 <Button
                                     bg="#187bc0"
                                     color="white"
@@ -104,6 +106,7 @@ const HeroCarousel = () => {
                                 >
                                     Խորհրդատվության
                                 </Button>
+                                </Link>
                             </Container>
                         </Box>
                     </Box>
