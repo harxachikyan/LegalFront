@@ -14,7 +14,7 @@ import {
     Image,
     VStack
 } from "@chakra-ui/react";
-import { FaFacebook, FaInstagram, FaLinkedin, FaBars } from "react-icons/fa";
+import { FaFacebook, FaInstagram,  FaBars,FaEnvelope } from "react-icons/fa";
 import React from "react";
 
 const Nav = () => {
@@ -65,27 +65,27 @@ const Nav = () => {
                 </Flex>
 
                 <HStack spacing={{ base: 2, md: 8 }} align="center">
-                    <HStack spacing={{ base: 1, md: 4 }} display={{ base: "none", sm: "flex" }}>
-                        {["ՀԱՅ", "ENG", "РУՍ"].map((lang) => (
-                            <Text
-                                key={lang}
-                                fontSize={{ base: "sm", md: "20px" }}
-                                fontWeight="bold"
-                                color="rgba(255,255,255,0.8)"
-                                cursor="pointer"
-                                transition="all 0.3s ease"
-                                _hover={{
-                                    color: "white",
-                                    transform: "scale(1.1)",
-                                    textShadow: "0 0 10px rgba(255,255,255,0.5)"
-                                }}
-                                px={{ base: 1, md: 2 }}
-                                py={{ base: 0.5, md: 1 }}
-                            >
-                                {lang}
-                            </Text>
-                        ))}
-                    </HStack>
+                    {/*<HStack spacing={{ base: 1, md: 4 }} display={{ base: "none", sm: "flex" }}>*/}
+                    {/*    {["ՀԱՅ", "ENG", "РУՍ"].map((lang) => (*/}
+                    {/*        <Text*/}
+                    {/*            key={lang}*/}
+                    {/*            fontSize={{ base: "sm", md: "20px" }}*/}
+                    {/*            fontWeight="bold"*/}
+                    {/*            color="rgba(255,255,255,0.8)"*/}
+                    {/*            cursor="pointer"*/}
+                    {/*            transition="all 0.3s ease"*/}
+                    {/*            _hover={{*/}
+                    {/*                color: "white",*/}
+                    {/*                transform: "scale(1.1)",*/}
+                    {/*                textShadow: "0 0 10px rgba(255,255,255,0.5)"*/}
+                    {/*            }}*/}
+                    {/*            px={{ base: 1, md: 2 }}*/}
+                    {/*            py={{ base: 0.5, md: 1 }}*/}
+                    {/*        >*/}
+                    {/*            {lang}*/}
+                    {/*        </Text>*/}
+                    {/*    ))}*/}
+                    {/*</HStack>*/}
 
                     <HStack spacing={{ base: 2, md: 5 }} display={{ base: "none", md: "flex" }}>
                         <Box
@@ -98,6 +98,7 @@ const Nav = () => {
                                 transform: "scale(1.3)",
                                 color: "#4267B2"
                             }}
+                            onClick={() => window.open('https://www.facebook.com/profile.php?id=61557661694303', '_blank')}
                         />
                         <Box
                             as={FaInstagram}
@@ -109,17 +110,20 @@ const Nav = () => {
                                 transform: "scale(1.3)",
                                 color: "#E1306C"
                             }}
+                            onClick={() => window.open('https://www.instagram.com/legal_titan_llc______/', '_blank')}
+
                         />
                         <Box
-                            as={FaLinkedin}
+                            as={FaEnvelope}
                             size="28px"
                             color="rgba(255,255,255,0.8)"
                             cursor="pointer"
                             transition="all 0.3s ease"
                             _hover={{
                                 transform: "scale(1.3)",
-                                color: "#0077B5"
+                                color: "#D44638"
                             }}
+                            onClick={() => window.open('https://mail.google.com/')}
                         />
                     </HStack>
 
@@ -177,7 +181,7 @@ const Nav = () => {
                     </Link>
                 ))}
 
-                {/* Desktop Legislation Menu */}
+
                 <Menu isLazy closeOnSelect={false}>
                     <Box position="relative">
                         <MenuButton
@@ -302,6 +306,7 @@ const Nav = () => {
                                 transform: "scale(1.2)",
                                 color: "#4267B2"
                             }}
+                            onClick={() => window.open('https://www.facebook.com/profile.php?id=61557661694303', '_blank')}
                         />
                         <Box
                             as={FaInstagram}
@@ -313,17 +318,19 @@ const Nav = () => {
                                 transform: "scale(1.2)",
                                 color: "#E1306C"
                             }}
+                            onClick={() => window.open('https://www.instagram.com/legal_titan_llc______/', '_blank')}
                         />
                         <Box
-                            as={FaLinkedin}
-                            size="24px"
+                            as={FaEnvelope}
+                            size="28px"
                             color="rgba(255,255,255,0.8)"
                             cursor="pointer"
                             transition="all 0.3s ease"
                             _hover={{
-                                transform: "scale(1.2)",
-                                color: "#0077B5"
+                                transform: "scale(1.3)",
+                                color: "#D44638"
                             }}
+                            onClick={() => window.open('https://mail.google.com/')}
                         />
                     </HStack>
                     <HStack spacing={4} justify="center" mt={4} display={{ base: "flex", sm: "none" }}>

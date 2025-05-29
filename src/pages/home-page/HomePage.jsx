@@ -15,6 +15,7 @@ import {
     Stack,
     Container
 } from "@chakra-ui/react";
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadset, faCommentDots, faGavel, faBalanceScale, faHandshake } from "@fortawesome/free-solid-svg-icons";
 import { faPagelines } from "@fortawesome/free-brands-svg-icons";
@@ -45,7 +46,7 @@ const HomePage = () => {
         { icon: faBalanceScale, title: "Վարչական Իրավունք", description: "Ձեր իրավունքի պաշտպանը պետական մարմինների հետ հարաբերություններում" },
         { icon: faHandshake, title: "Կորպորատիվ Իրավունք", description: "Ընկերություններ կորպորատիվ իրավաբանական սպասարկում և ցանկացած իրավական խնդրի լուծում" },
     ];
-
+    const navigate = useNavigate();
     return (
         <Box maxW="100vw" overflowX="hidden">
             <HeroCarousel height={{ base: "60vh", md: "70vh", lg: "80vh" }} />
@@ -113,21 +114,25 @@ const HomePage = () => {
                                 <Text fontSize={{ base: "sm", md: "md" }} mb={4}>
                                     {area.description}
                                 </Text>
-                                <Button
-                                    variant="outline"
-                                    color="#187bc0"
-                                    size={{ base: "sm", md: "md" }}
-                                    width="fit-content"
-                                    borderWidth="2px"
-                                    borderRadius="md"
-                                    _hover={{
-                                        bg: "#187bc0",
-                                        color: "white",
-                                        transform: "scale(1.05)"
-                                    }}
-                                >
-                                    Ավելին
-                                </Button>
+                                <Link to="/services">
+                                    <Button
+                                        variant="outline"
+                                        color="#187bc0"
+                                        size={{ base: "sm", md: "md" }}
+                                        width="fit-content"
+                                        borderWidth="2px"
+                                        borderRadius="md"
+                                        _hover={{
+                                            bg: "#187bc0",
+                                            color: "white",
+                                            transform: "scale(1.05)"
+                                        }}
+                                        onClick={() => navigate('/services')}
+                                    >
+                                        Ավելին
+                                    </Button>
+                                </Link>
+
                             </Box>
                         ))}
                     </Flex>
@@ -204,6 +209,7 @@ const HomePage = () => {
                                         fontSize={{ base: "24px", md: "28px" }}
                                     />
                                 }
+                                onClick={() => navigate('/about')}
                             >
                                 Իմանալ Ավելին
                             </Button>
@@ -289,6 +295,7 @@ const HomePage = () => {
                             borderWidth="2px"
                             borderColor="#187bc0"
                             transition="all 0.3s"
+                            onClick={() => navigate('/contact')}
                             _hover={{
                                 transform: "scale(1.05)",
                                 boxShadow: "xl",

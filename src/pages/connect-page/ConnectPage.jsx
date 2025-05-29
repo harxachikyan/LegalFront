@@ -13,6 +13,8 @@ import MapModal from "../../components/modals/MapModal";
 const ConnectPage = () => {
     const [formData, setFormData] = useState({
         name: "",
+        lastname: "",
+        surname: "",
         email: "",
         phone: "",
         message: "",
@@ -32,28 +34,56 @@ const ConnectPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        setTimeout(() => {
-            setIsSubmitting(false);
+        try {
+            const response = await fetch("http://127.0.0.1:8000/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Սխալ տեղի ունեցավ հարցումը ուղարկելու ժամանակ");
+            }
+
+
             toast({
                 title: "Հաղորդագրությունն ուղարկված է",
                 description: "Մենք ստացել ենք Ձեր հաղորդագրությունը և կապ կհաստատենք Ձեզ հետ սեղմ ժամկետում:",
                 status: "success",
                 duration: 5000,
                 isClosable: true,
-                position: "top"
+                position: "top",
             });
+
             setFormData({
                 name: "",
+                lastname: "",
+                surname: "",
                 email: "",
                 phone: "",
                 message: "",
-                caseType: ""
+                caseType: "",
             });
-        }, 2000);
+
+        } catch (error) {
+            toast({
+                title: "Սխալ",
+                description: "Չհաջողվեց ուղարկել հաղորդագրությունը։ Խնդրում ենք փորձել ավելի ուշ։",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+                position: "top",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+
     };
 
     const practiceAreas = [
