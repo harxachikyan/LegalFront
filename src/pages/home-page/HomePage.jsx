@@ -173,14 +173,7 @@ const HomePage = () => {
                             >
                                 Ինչու՞ ընտրել մեզ
                             </Heading>
-                            <Text
-                                mb={4}
-                                fontSize={{ base: "md", md: "lg" }}
-                                fontStyle="italic"
-                                color="gray.600"
-                            >
-                                Մեր թիմի իրավաբանները և փաստաբանները
-                            </Text>
+
                             <Text
                                 mb={6}
                                 fontSize={{ base: "sm", md: "md" }}
@@ -188,8 +181,7 @@ const HomePage = () => {
                                 color="gray.600"
                                 lineHeight="tall"
                             >
-                                Մենք հպարտանում ենք մեր ավանդական արժեքներով և նորարարական մոտեցումներով, որոնք
-                                ապահովում են լավագույն արդյունքները մեր հաճախորդների համար:
+                                :
                             </Text>
                             <Button
                                 bg="#187bc0"
@@ -230,16 +222,9 @@ const HomePage = () => {
                         color="#1565a3"
                         lineHeight="tall"
                     >
-                        Պատրաստ եք քննարկել Ձեր իրավական հարցերը?
+                        Պատրաստ ենք քննարկել Ձեզ հուզող բոլոր իրավական հարցերը
                     </Heading>
-                    <Text
-                        fontSize={{ base: "md", md: "xl" }}
-                        mb={{ base: 6, md: 8 }}
-                        opacity={0.9}
-                        color="#1565a3"
-                    >
-                        Կապ հաստատեք մեզ հետ՝ անվճար խորհրդատվության համար:
-                    </Text>
+
                     <Stack
                         direction={{ base: "column", sm: "row" }}
                         justify="center"
