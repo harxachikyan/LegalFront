@@ -3,16 +3,12 @@ import {
     Container,
     Heading,
     Text,
-    VStack,
-    HStack,
-    Flex,
     Image,
-    Divider,
     SimpleGrid,
     Avatar,
-    useBreakpointValue,
     Button,
     Icon,
+    useDisclosure
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
@@ -21,10 +17,15 @@ import { GiScales } from "react-icons/gi";
 import ArenImg from "../../assets/images/Aren.png";
 import AshotImg from "../../assets/images/Ashot.png";
 import officePhoto from "../../assets/images/office.jpeg";
+import ExperienceModal from "../../components/modals/ExperienceModal";
+import { useState} from "react";
+
 
 const MotionBox = motion(Box);
 
 const AboutPage = () => {
+
+
     const stats = [
         { value: "5+", label: "Տարիների փորձ" },
         { value: "100+", label: "Դատական գործեր" },
@@ -70,7 +71,12 @@ const AboutPage = () => {
             experience: "5 տարի",
             photo: AshotImg
         }
+
     ];
+    const [selectedMemberIndex, setSelectedMemberIndex] = useState(null);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const selectedMember = teamMembers[selectedMemberIndex];
+
     const navigate = useNavigate();
     return (
         <Box bg="gray.50">
@@ -168,7 +174,7 @@ const AboutPage = () => {
             <Box bg="blue.800" color="white" py={{ base: 10, md: 16 }}>
                 <Container maxW={{ base: "90%", md: "container.lg" }}>
                     <SimpleGrid
-                        columns={{ base: 2, sm: 2, md: 4 }}
+                        columns={{ base: 1, sm: 2, md: 3 }}
                         spacing={{ base: 6, md: 10 }}
                         textAlign="center"
                     >
@@ -290,60 +296,46 @@ const AboutPage = () => {
                     >
                         Ընկերության հիմնադիրները
                     </Heading>
-                    <SimpleGrid
-                        columns={{ base: 1, sm: 2, md: 2 }}
-                        spacing={{ base: 8, md: 8 }}
-                        justifyContent="center"
-                    >
+                    <SimpleGrid columns={{ base: 1, sm: 2, md: 2 }} spacing={8} justifyContent="center">
                         {teamMembers.map((member, index) => (
-                            <MotionBox
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                bg="white"
-                                p={{ base: 4, md: 6 }}
-                                borderRadius="lg"
-                                boxShadow="md"
-                                textAlign="center"
-                                _hover={{ boxShadow: "xl", transform: "translateY(-5px)" }}
-                                transition="all 0.3s ease"
-                                maxW={{ base: "300px", sm: "400px", md: "400px" }}
-                                mx="auto"
-                            >
-                                <Avatar size={{ base: "lg", md: "xl" }} name={member.name} mb={{ base: 3, md: 4 }} src={member.photo} />
-                                <Heading
-                                    as="h3"
-                                    fontSize={{ base: "md", md: "lg" }}
-                                    mb={{ base: 0.5, md: 1 }}
-                                    color="blue.800"
+                            <Box key={index}>
+                                <MotionBox
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    bg="white"
+                                    p={6}
+                                    borderRadius="lg"
+                                    boxShadow="md"
+                                    textAlign="center"
+                                    _hover={{ boxShadow: "xl", transform: "translateY(-5px)" }}
+                                    transition="all 0.3s ease"
+                                    maxW="400px"
+                                    mx="auto"
                                 >
-                                    {member.name}
-                                </Heading>
-                                <Text
-                                    fontWeight="bold"
-                                    color="blue.600"
-                                    mb={{ base: 1, md: 2 }}
-                                    fontSize={{ base: "sm", md: "md" }}
-                                >
-                                    {member.role}
-                                </Text>
-                                <Text
-                                    fontSize={{ base: "xs", md: "sm" }}
-                                    color="gray.600"
-                                    mb={{ base: 0.5, md: 1 }}
-                                >
-                                    <strong>Մասնագիտացում:</strong> {member.specialization}
-                                </Text>
-                                <Text
-                                    fontSize={{ base: "xs", md: "sm" }}
-                                    color="gray.600"
-                                >
-                                    <strong>Փորձ:</strong> {member.experience}
-                                </Text>
-                            </MotionBox>
+                                    <Avatar size="xl" name={member.name} mb={4} src={member.photo} />
+                                    <Heading as="h3" fontSize="lg" mb={1} color="blue.800">{member.name}</Heading>
+                                    <Text fontWeight="bold" color="blue.600" mb={2}>{member.role}</Text>
+                                    <Text fontSize="sm" color="gray.600" mb={1}><strong>Մասնագիտացում:</strong> {member.specialization}</Text>
+                                    <Text fontSize="sm" color="gray.600"><strong>Փորձ:</strong> {member.experience}</Text>
+                                    <Button
+                                        mt={3}
+                                        size="sm"
+                                        colorScheme="blue"
+                                        variant="outline"
+                                        onClick={() => {
+                                            setSelectedMemberIndex(index);
+                                            onOpen();
+                                        }}
+                                    >
+                                        Տեսնել ավելին
+                                    </Button>
+                                </MotionBox>
+                            </Box>
                         ))}
+
+                        <ExperienceModal isOpen={isOpen} onClose={onClose} member={selectedMember} />
                     </SimpleGrid>
                 </Container>
             </Box>

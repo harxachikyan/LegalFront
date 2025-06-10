@@ -9,6 +9,7 @@ import { MdOutlineMiscellaneousServices } from "react-icons/md";
 import ProgressStats from "../../components/modals/ProgressStats";
 import ServicesModal from "../../components/modals/ServicesModal";
 import MapModal from "../../components/modals/MapModal";
+import { motion } from "framer-motion";
 
 const ConnectPage = () => {
     const [formData, setFormData] = useState({
@@ -85,6 +86,7 @@ const ConnectPage = () => {
         }
 
     };
+    const MotionBox = motion(Box);
 
     const practiceAreas = [
         { name: "Կորպորատիվ իրավունք", icon: FaUserTie },
@@ -121,29 +123,35 @@ const ConnectPage = () => {
                     textAlign="center"
                     px={{ base: 4, md: 8 }}
                 >
-                    <Box maxW={{ base: "90%", md: "2xl" }}>
-                        <Heading
-                            as="h1"
-                            fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
-                            color="white"
-                            mb={{ base: 3, md: 4 }}
-                        >
-                            Legal Titan իրավաբանական ընկերություն
-                        </Heading>
-                        <Text
-                            fontSize={{ base: "md", md: "xl" }}
-                            color="white"
-                            mb={{ base: 4, md: 6 }}
-                        >
-                        </Text>
-                        <Button
-                            colorScheme="blue"
-                            size={{ base: "md", md: "lg" }}
-                            onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
-                        >
-                            Կապ մեզ հետ
-                        </Button>
-                    </Box>
+                    <MotionBox
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <Box maxW={{ base: "90%", md: "2xl" }}>
+                            <Heading
+                                as="h1"
+                                fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                                color="white"
+                                mb={{ base: 3, md: 4 }}
+                            >
+                                Legal Titan իրավաբանական ընկերություն
+                            </Heading>
+                            <Text
+                                fontSize={{ base: "md", md: "xl" }}
+                                color="white"
+                                mb={{ base: 4, md: 6 }}
+                            >
+                            </Text>
+                            <Button
+                                colorScheme="blue"
+                                size={{ base: "md", md: "lg" }}
+                                onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
+                            >
+                                Կապ մեզ հետ
+                            </Button>
+                        </Box>
+                    </MotionBox>
                 </Box>
             </Box>
 

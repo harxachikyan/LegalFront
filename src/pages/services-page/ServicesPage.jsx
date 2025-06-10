@@ -70,8 +70,8 @@ const ServicesPage = () => {
             icon: MdOutlineRealEstateAgent,
             color: "black",
             services: [
-                "1.Մինչդատական ներկայացուցչություն աշխատանքային իրավահարաբերություններում  ,",
-                "2.Դատական ներկայացուցչություն աշխատանքային իրավահարաբերություններում :"
+                "1.Մինչդատական ներկայացուցչություն աշխատանքային իրավահարաբերություններում,",
+                "2.Դատական ներկայացուցչություն աշխատանքային իրավահարաբերություններում:"
             ]
         },
         {
@@ -161,25 +161,37 @@ const ServicesPage = () => {
                     bottom={0}
                     bg="rgba(0, 0, 0, 0.6)"
                 />
-                <Container maxW={{ base: "90%", md: "container.md", lg: "container.lg" }} position="relative" zIndex={1}>
-                    <SlideFade in={true} offsetY={20}>
-                        <Heading
-                            as="h1"
-                            fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
-                            mb={{ base: 3, md: 4 }}
-                            fontStyle="italic"
-                        >
-                            Պրոֆեսիոնալ Իրավաբանական և փաստաբանական ծառայություններ
-                        </Heading>
-                        <Button
-                            colorScheme="blue"
-                            size={{ base: "md", md: "lg" }}
-                            onClick={() => document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' })}
-                        >
-                            Դիտել ծառայությունները
-                        </Button>
-                    </SlideFade>
-                </Container>
+                <MotionBox
+                    flex={{ base: "1 0 100%", md: "1" }}
+                    order={{ base: 1, md: 2 }}
+                    textAlign={{ base: "center", md: "left" }}
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Container maxW={{ base: "90%", md: "container.md", lg: "container.lg" }} position="relative" zIndex={1}>
+                        <SlideFade in={true} offsetY={20}>
+                            <Heading
+                                as="h1"
+                                textAlign="center"
+                                fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
+                                mb={{ base: 3, md: 4 }}
+                                fontStyle="italic"
+                            >
+                                Պրոֆեսիոնալ Իրավաբանական և փաստաբանական ծառայություններ
+                            </Heading>
+                            <Box display="flex" justifyContent="center">
+                                <Button
+                                    colorScheme="blue"
+                                    size={{ base: "md", md: "lg" }}
+                                    onClick={() => document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' })}
+                                >
+                                    Դիտել ծառայությունները
+                                </Button>
+                            </Box>
+                        </SlideFade>
+                    </Container>
+                </MotionBox>
             </Box>
 
             <Container maxW={{ base: "90%", md: "container.lg" }} py={{ base: 10, md: 16 }} id="services-section">
@@ -257,7 +269,7 @@ const ServicesPage = () => {
                                                         boxSize={{ base: 3, md: 4 }}
                                                     />
                                                     <Text
-                                                        noOfLines={2}
+                                                        noOfLines={6}
                                                         fontSize={{ base: "sm", md: "md" }}
                                                     >
                                                         {service}
@@ -330,36 +342,45 @@ const ServicesPage = () => {
                 </ModalContent>
             </Modal>
 
-            <Box bg="blue.50" py={{ base: 10, md: 16 }}>
-                <Container maxW={{ base: "90%", md: "container.lg" }} textAlign="center">
-                    <Fade in={true}>
-                        <Heading
-                            as="h2"
-                            fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-                            mb={{ base: 3, md: 4 }}
-                        >
-                            Ունե՞ք իրավական խնդիր
-                        </Heading>
-                        <Text
-                            fontSize={{ base: "md", md: "lg" }}
-                            mb={{ base: 6, md: 8 }}
-                            maxW="2xl"
-                            mx="auto"
-                        >
-                            Կապ հաստատեք մեզ հետ և մենք կլուծենք այն:
-                        </Text>
-                        <Button
-                            colorScheme="blue"
-                            size={{ base: "md", md: "lg" }}
-                            leftIcon={<FaHandshake />}
-                            as="a"
-                            href="/contact"
-                        >
-                            Կապ մեզ հետ
-                        </Button>
-                    </Fade>
-                </Container>
-            </Box>
+            <MotionBox
+                flex={{ base: "1 0 100%", md: "1" }}
+                order={{ base: 1, md: 2 }}
+                textAlign={{ base: "center", md: "left" }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <Box bg="blue.50" py={{ base: 10, md: 16 }}>
+                    <Container maxW={{ base: "90%", md: "container.lg" }} textAlign="center">
+                        <Fade in={true}>
+                            <Heading
+                                as="h2"
+                                fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                                mb={{ base: 3, md: 4 }}
+                            >
+                                Ունե՞ք իրավական խնդիր
+                            </Heading>
+                            <Text
+                                fontSize={{ base: "md", md: "lg" }}
+                                mb={{ base: 6, md: 8 }}
+                                maxW="2xl"
+                                mx="auto"
+                            >
+                                Կապ հաստատեք մեզ հետ և մենք կլուծենք այն:
+                            </Text>
+                            <Button
+                                colorScheme="blue"
+                                size={{ base: "md", md: "lg" }}
+                                leftIcon={<FaHandshake />}
+                                as="a"
+                                href="/contact"
+                            >
+                                Կապ մեզ հետ
+                            </Button>
+                        </Fade>
+                    </Container>
+                </Box>
+            </MotionBox>
         </Box>
     );
 };

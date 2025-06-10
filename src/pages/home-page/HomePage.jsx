@@ -1,5 +1,5 @@
 import React from "react";
-import { useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react';
 import {
     Box,
     Button,
@@ -27,94 +27,110 @@ import HeroCarousel from "../../components/modals/HeroCarousel";
 import Acrostic from "../../components/modals/Acrostic";
 import Marquee from "../../components/modals/Marquee";
 import GerbIcon from "../../assets/images/gerb.png";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 const HomePage = () => {
     const toast = useToast();
-
-    const sliderSettings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
-    };
+    const navigate = useNavigate();
 
     const practiceAreas = [
-        { icon: faGavel, title: "Քաղաքացիական իրավունք", description: "Ձեր իրավունքների և օրինական շահերի պաշտպանություն մասնավոր իրավունքին առնչվող ցանկացած գործով" },
-        { icon: faBalanceScale, title: "Վարչական Իրավունք", description: "Ձեր իրավունքի պաշտպանը պետական մարմինների հետ հարաբերություններում" },
-        { icon: faHandshake, title: "Կորպորատիվ Իրավունք", description: "Ընկերություններ կորպորատիվ իրավաբանական սպասարկում և ցանկացած իրավական խնդրի լուծում" },
+        {
+            icon: faGavel,
+            title: "Քաղաքացիական իրավունք",
+            description: "Ձեր իրավունքների և օրինական շահերի պաշտպանություն մասնավոր իրավունքին առնչվող ցանկացած գործով"
+        },
+        {
+            icon: faBalanceScale,
+            title: "Վարչական Իրավունք",
+            description: "Ձեր իրավունքի պաշտպանը պետական մարմինների հետ հարաբերություններում"
+        },
+        {
+            icon: faHandshake,
+            title: "Կորպորատիվ Իրավունք",
+            description: "Ընկերություններ կորպորատիվ իրավաբանական սպասարկում և ցանկացած իրավական խնդրի լուծում"
+        }
     ];
-    const navigate = useNavigate();
+
     return (
         <Box maxW="100vw" overflowX="hidden">
-            <HeroCarousel height={{ base: "60vh", md: "70vh", lg: "80vh" }} />
+            <MotionBox
+                flex={{ base: "1 0 100%", md: "1" }}
+                order={{ base: 1, md: 2 }}
+                textAlign={{ base: "center", md: "left" }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                <HeroCarousel height={{ base: "60vh", md: "70vh", lg: "80vh" }} />
+            </MotionBox>
 
             <Marquee
                 icon={GerbIcon}
-                title="Մեր Հաջողված Գործերը"
-                subtitle="Մեր իրավաբանական թիմի կողմից իրականացված ամենանշանակալի դատական գործերը"
+                title="Ձեր Իրավունքի պաշտպանությունը մեր առաքելությունն է։"
+                subtitle=""
                 bgColor="#1a365d"
                 speed={20}
                 py={{ base: 4, md: 6 }}
                 fontSize={{ base: "sm", md: "md" }}
             />
 
-            <Box py={{ base: 12, md: 20 }} bg="gray.50">
-                <Container maxW="container.xl" px={{ base: 4, md: 6 }}>
-                    <Heading
-                        textAlign="center"
-                        mb={{ base: 8, md: 12 }}
-                        color="#187bc0"
-                        fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
-                    >
-                        Ծառայությունների Ոլորտները
-                    </Heading>
+            <MotionBox
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
+                <Box py={{ base: 12, md: 20 }} bg="gray.50">
+                    <Container maxW="container.xl" px={{ base: 4, md: 6 }}>
+                        <Heading
+                            textAlign="center"
+                            mb={{ base: 8, md: 12 }}
+                            color="#187bc0"
+                            fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+                        >
+                            Ծառայությունների Ոլորտները
+                        </Heading>
 
-                    <Flex
-                        direction={{ base: "column", md: "row" }}
-                        justify="center"
-                        align="stretch"
-                        gap={{ base: 6, md: 8 }}
-                        flexWrap="wrap"
-                    >
-                        {practiceAreas.map((area, index) => (
-                            <Box
-                                key={index}
-                                bg="white"
-                                p={{ base: 6, md: 8 }}
-                                borderRadius="lg"
-                                boxShadow="md"
-                                textAlign="center"
-                                flex={{ base: "1 0 100%", sm: "1 0 calc(50% - 16px)", md: "1" }}
-                                minW={{ base: "100%", sm: "300px" }}
-                                maxW={{ base: "100%", md: "400px" }}
-                                transition="all 0.3s ease"
-                                _hover={{
-                                    transform: "translateY(-5px)",
-                                    boxShadow: "xl",
-                                }}
-                            >
-                                <Icon
-                                    as={FontAwesomeIcon}
-                                    icon={area.icon}
-                                    fontSize={{ base: "32px", md: "38px" }}
-                                    color="#187bc0"
-                                    mb={4}
-                                />
-                                <Heading
-                                    fontSize={{ base: "lg", md: "xl" }}
-                                    color="#187bc0"
-                                    mb={4}
-                                    lineHeight="tall"
+                        <Flex
+                            direction={{ base: "column", md: "row" }}
+                            justify="center"
+                            align="stretch"
+                            gap={{ base: 6, md: 8 }}
+                            flexWrap="wrap"
+                        >
+                            {practiceAreas.map((area, index) => (
+                                <MotionBox
+                                    key={index}
+                                    bg="white"
+                                    p={{ base: 6, md: 8 }}
+                                    borderRadius="lg"
+                                    boxShadow="md"
+                                    textAlign="center"
+                                    flex={{ base: "1 0 100%", sm: "1 0 calc(50% - 16px)", md: "1" }}
+                                    minW={{ base: "100%", sm: "300px" }}
+                                    maxW={{ base: "100%", md: "400px" }}
+                                    transition="all 0.3s ease"
+                                    whileHover={{ y: -5 }}
                                 >
-                                    {area.title}
-                                </Heading>
-                                <Text fontSize={{ base: "sm", md: "md" }} mb={4}>
-                                    {area.description}
-                                </Text>
-                                <Link to="/services">
+                                    <Icon
+                                        as={FontAwesomeIcon}
+                                        icon={area.icon}
+                                        fontSize={{ base: "32px", md: "38px" }}
+                                        color="#187bc0"
+                                        mb={4}
+                                    />
+                                    <Heading
+                                        fontSize={{ base: "lg", md: "xl" }}
+                                        color="#187bc0"
+                                        mb={4}
+                                        lineHeight="tall"
+                                    >
+                                        {area.title}
+                                    </Heading>
+                                    <Text fontSize={{ base: "sm", md: "md" }} mb={4}>
+                                        {area.description}
+                                    </Text>
                                     <Button
                                         variant="outline"
                                         color="#187bc0"
@@ -131,24 +147,22 @@ const HomePage = () => {
                                     >
                                         Ավելին
                                     </Button>
-                                </Link>
-
-                            </Box>
-                        ))}
-                    </Flex>
-                </Container>
-            </Box>
+                                </MotionBox>
+                            ))}
+                        </Flex>
+                    </Container>
+                </Box>
+            </MotionBox>
 
             <Box py={{ base: 12, md: 20 }} bg="white">
                 <Container maxW="container.xl" px={{ base: 4, md: 6 }}>
-                    <Stack
-                        direction={{ base: "column", md: "row" }}
-                        spacing={{ base: 8, md: 12 }}
-                        align="center"
-                    >
-                        <Box
+                    <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 8, md: 12 }} align="center">
+                        <MotionBox
                             flex={{ base: "1 0 100%", md: "1" }}
                             order={{ base: 2, md: 1 }}
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5 }}
                         >
                             <Image
                                 src="assets/images/homePage/about_seck.jpg"
@@ -159,21 +173,18 @@ const HomePage = () => {
                                 objectFit="cover"
                                 objectPosition="center"
                             />
-                        </Box>
-                        <Box
+                        </MotionBox>
+                        <MotionBox
                             flex={{ base: "1 0 100%", md: "1" }}
                             order={{ base: 1, md: 2 }}
                             textAlign={{ base: "center", md: "left" }}
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            <Heading
-                                mb={{ base: 4, md: 6 }}
-                                fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-                                fontStyle="italic"
-                                color="gray.800"
-                            >
+                            <Heading mb={6} fontSize={{ base: "xl", md: "2xl", lg: "3xl" }} fontStyle="italic" color="gray.800">
                                 Ինչու՞ ընտրել մեզ
                             </Heading>
-
                             <Text
                                 mb={6}
                                 fontSize={{ base: "sm", md: "md" }}
@@ -194,25 +205,43 @@ const HomePage = () => {
                                     transform: "translateY(-2px)",
                                     boxShadow: "md"
                                 }}
-                                leftIcon={
-                                    <Icon
-                                        as={FontAwesomeIcon}
-                                        icon={faPagelines}
-                                        fontSize={{ base: "24px", md: "28px" }}
-                                    />
-                                }
+                                leftIcon={<Icon as={FontAwesomeIcon} icon={faPagelines} fontSize={{ base: "24px", md: "28px" }} />}
                                 onClick={() => navigate('/about')}
                             >
                                 Իմանալ Ավելին
                             </Button>
-                        </Box>
+                        </MotionBox>
                     </Stack>
                 </Container>
             </Box>
-
-            <Testimonials />
-            <Acrostic />
-
+            <MotionBox
+                flex={{ base: "1 0 100%", md: "1" }}
+                order={{ base: 1, md: 2 }}
+                textAlign={{ base: "center", md: "left" }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+                    <Testimonials />
+             </MotionBox>
+            <MotionBox
+                flex={{ base: "1 0 100%", md: "1" }}
+                order={{ base: 1, md: 2 }}
+                textAlign={{ base: "center", md: "left" }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
+             <Acrostic />
+            </MotionBox>
+            <MotionBox
+                flex={{ base: "1 0 100%", md: "1" }}
+                order={{ base: 1, md: 2 }}
+                textAlign={{ base: "center", md: "left" }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+            >
             <Box py={{ base: 12, md: 20 }} bg="#ebf8ff">
                 <Container maxW="container.xl" px={{ base: 4, md: 6 }} textAlign="center">
                     <Heading
@@ -258,16 +287,11 @@ const HomePage = () => {
                                 bg: "#187bc0",
                                 color: "white"
                             }}
-                            leftIcon={
-                                <Icon
-                                    as={FontAwesomeIcon}
-                                    icon={faHeadset}
-                                    fontSize={{ base: "20px", md: "24px" }}
-                                />
-                            }
+                            leftIcon={<Icon as={FontAwesomeIcon} icon={faHeadset} fontSize={{ base: "20px", md: "24px" }} />}
                         >
                             Զանգահարել Հիմա
                         </Button>
+
                         <Button
                             bg="white"
                             color="#187bc0"
@@ -287,19 +311,14 @@ const HomePage = () => {
                                 bg: "#187bc0",
                                 color: "white"
                             }}
-                            leftIcon={
-                                <Icon
-                                    as={FontAwesomeIcon}
-                                    icon={faCommentDots}
-                                    fontSize={{ base: "20px", md: "24px" }}
-                                />
-                            }
+                            leftIcon={<Icon as={FontAwesomeIcon} icon={faCommentDots} fontSize={{ base: "20px", md: "24px" }} />}
                         >
                             Ուղարկել Հաղորդագրություն
                         </Button>
                     </Stack>
                 </Container>
             </Box>
+            </MotionBox>
         </Box>
     );
 };

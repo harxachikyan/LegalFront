@@ -12,6 +12,7 @@ import RecentCases from '../../components/modals/RecentCases';
 import CaseModal from '../../components/modals/CaseModal'; //
 import GerbIcon from '../../assets/images/gerb.png'
 import Marquee from "../../components/modals/Marquee";
+import {motion} from "framer-motion";
 
 const WorksPage = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -71,38 +72,45 @@ const WorksPage = () => {
         },
     ];
 
+    const MotionBox = motion(Box);
     const handleCaseClick = (caseItem) => {
         setSelectedCase(caseItem);
         onOpen();
     };
 
     return (
+
         <Box>
 
             <Marquee
                 icon={GerbIcon}
-                title="Մեր Հաջողված Գործերը"
-                subtitle="Մեր իրավաբանական թիմի կողմից իրականացված ամենանշանակալի դատական գործերը"
+                title="Ձեր Իրավունքի պաշտպանությունը մեր առաքելությունն է։"
+                subtitle=""
                 bgColor="#1a365d"
                 speed={20}
 
             />
 
+                <MotionBox
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                <Container
+                    maxW={{ base: "95%", md: "container.lg", xl: "container.xl" }}
+                    py={{ base: 10, md: 20 }}
+                >
 
-            <Container
-                maxW={{ base: "95%", md: "container.lg", xl: "container.xl" }}
-                py={{ base: 10, md: 20 }}
-            >
-
-                <RecentCases cases={cases} onCaseClick={handleCaseClick} />
-            </Container>
+                    <RecentCases cases={cases} onCaseClick={handleCaseClick} />
+                </Container>
 
 
-            <CaseModal
-                isOpen={isOpen}
-                onClose={onClose}
-                caseData={selectedCase}
-            />
+                <CaseModal
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    caseData={selectedCase}
+                />
+            </MotionBox>
         </Box>
     );
 };
