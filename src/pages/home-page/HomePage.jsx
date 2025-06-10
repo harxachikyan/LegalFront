@@ -26,7 +26,7 @@ import Testimonials from "../../components/modals/Testmonials";
 import HeroCarousel from "../../components/modals/HeroCarousel";
 import Acrostic from "../../components/modals/Acrostic";
 import Marquee from "../../components/modals/Marquee";
-import GerbIcon from "../../assets/images/gerb.png";
+import icon from "../../assets/images/legalLogo.jpg";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
@@ -67,11 +67,11 @@ const HomePage = () => {
             </MotionBox>
 
             <Marquee
-                icon={GerbIcon}
+                icon={icon}
                 title="Ձեր Իրավունքի պաշտպանությունը մեր առաքելությունն է։"
                 subtitle=""
                 bgColor="#1a365d"
-                speed={20}
+                speed={10}
                 py={{ base: 4, md: 6 }}
                 fontSize={{ base: "sm", md: "md" }}
             />
@@ -185,15 +185,7 @@ const HomePage = () => {
                             <Heading mb={6} fontSize={{ base: "xl", md: "2xl", lg: "3xl" }} fontStyle="italic" color="gray.800">
                                 Ինչու՞ ընտրել մեզ
                             </Heading>
-                            <Text
-                                mb={6}
-                                fontSize={{ base: "sm", md: "md" }}
-                                fontStyle="italic"
-                                color="gray.600"
-                                lineHeight="tall"
-                            >
-                                :
-                            </Text>
+
                             <Button
                                 bg="#187bc0"
                                 color="white"

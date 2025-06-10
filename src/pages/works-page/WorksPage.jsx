@@ -7,12 +7,13 @@ import {
     SlideFade, // SlideFade is not directly used in the provided code, but kept if you intend to use it.
     useColorModeValue // useColorModeValue is not directly used, but kept if you intend to use it.
 } from '@chakra-ui/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import RecentCases from '../../components/modals/RecentCases';
 import CaseModal from '../../components/modals/CaseModal'; //
 import GerbIcon from '../../assets/images/gerb.png'
 import Marquee from "../../components/modals/Marquee";
 import {motion} from "framer-motion";
+import icon from "../../assets/images/legalLogo.jpg";
 
 const WorksPage = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -83,14 +84,14 @@ const WorksPage = () => {
         <Box>
 
             <Marquee
-                icon={GerbIcon}
+                icon={icon}
                 title="Ձեր Իրավունքի պաշտպանությունը մեր առաքելությունն է։"
                 subtitle=""
                 bgColor="#1a365d"
-                speed={20}
-
+                speed={10}
+                py={{ base: 4, md: 6 }}
+                fontSize={{ base: "sm", md: "md" }}
             />
-
                 <MotionBox
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

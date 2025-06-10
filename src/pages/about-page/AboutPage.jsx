@@ -112,7 +112,60 @@ const AboutPage = () => {
                     </MotionBox>
                 </Container>
             </Box>
+            <Box bg="gray.100" py={{ base: 12, md: 20 }}>
+                <Container maxW={{ base: "90%", md: "container.lg" }}>
+                    <Heading
+                        as="h2"
+                        fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                        mb={{ base: 8, md: 12 }}
+                        textAlign="center"
+                        color="blue.800"
+                    >
+                        Ընկերության հիմնադիրները
+                    </Heading>
+                    <SimpleGrid columns={{ base: 1, sm: 2, md: 2 }} spacing={8} justifyContent="center">
+                        {teamMembers.map((member, index) => (
+                            <Box key={index}>
+                                <MotionBox
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    bg="white"
+                                    p={6}
+                                    borderRadius="lg"
+                                    boxShadow="md"
+                                    textAlign="center"
+                                    _hover={{ boxShadow: "xl", transform: "translateY(-5px)" }}
+                                    transition="all 0.3s ease"
+                                    maxW="400px"
+                                    mx="auto"
+                                >
+                                    <Avatar size="xl" name={member.name} mb={4} src={member.photo} />
+                                    <Heading as="h3" fontSize="lg" mb={1} color="blue.800">{member.name}</Heading>
+                                    <Text fontWeight="bold" color="blue.600" mb={2}>{member.role}</Text>
 
+                                    <Text fontSize="sm" color="gray.600"><strong>Փորձ:</strong> {member.experience}</Text>
+                                    <Button
+                                        mt={3}
+                                        size="sm"
+                                        colorScheme="blue"
+                                        variant="outline"
+                                        onClick={() => {
+                                            setSelectedMemberIndex(index);
+                                            onOpen();
+                                        }}
+                                    >
+                                        Տեսնել ավելին
+                                    </Button>
+                                </MotionBox>
+                            </Box>
+                        ))}
+
+                        <ExperienceModal isOpen={isOpen} onClose={onClose} member={selectedMember} />
+                    </SimpleGrid>
+                </Container>
+            </Box>
             <Container maxW={{ base: "90%", md: "container.lg" }} py={{ base: 12, md: 20 }}>
                 <SimpleGrid
                     columns={{ base: 1, md: 2 }}
@@ -201,7 +254,7 @@ const AboutPage = () => {
                                     mb={{ base: 1, md: 2 }}
                                     color="blue.600"
                                     sx={{ transition: "all 0.3s ease" }}
-                                    _hover={{ color: "blue.500" }}
+                                    _hover={{ color: "black" }}
                                 >
                                     {stat.value}
                                 </Heading>
@@ -209,7 +262,7 @@ const AboutPage = () => {
                                     fontSize={{ base: "sm", md: "lg" }}
                                     fontWeight="medium"
                                     color="white.600"
-                                    _hover={{ color: "blue.400" }}
+                                    _hover={{ color: "black" }}
                                 >
                                     {stat.label}
                                 </Text>
@@ -285,60 +338,7 @@ const AboutPage = () => {
                 </SimpleGrid>
             </Container>
 
-            <Box bg="gray.100" py={{ base: 12, md: 20 }}>
-                <Container maxW={{ base: "90%", md: "container.lg" }}>
-                    <Heading
-                        as="h2"
-                        fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
-                        mb={{ base: 8, md: 12 }}
-                        textAlign="center"
-                        color="blue.800"
-                    >
-                        Ընկերության հիմնադիրները
-                    </Heading>
-                    <SimpleGrid columns={{ base: 1, sm: 2, md: 2 }} spacing={8} justifyContent="center">
-                        {teamMembers.map((member, index) => (
-                            <Box key={index}>
-                                <MotionBox
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    bg="white"
-                                    p={6}
-                                    borderRadius="lg"
-                                    boxShadow="md"
-                                    textAlign="center"
-                                    _hover={{ boxShadow: "xl", transform: "translateY(-5px)" }}
-                                    transition="all 0.3s ease"
-                                    maxW="400px"
-                                    mx="auto"
-                                >
-                                    <Avatar size="xl" name={member.name} mb={4} src={member.photo} />
-                                    <Heading as="h3" fontSize="lg" mb={1} color="blue.800">{member.name}</Heading>
-                                    <Text fontWeight="bold" color="blue.600" mb={2}>{member.role}</Text>
-                                    <Text fontSize="sm" color="gray.600" mb={1}><strong>Մասնագիտացում:</strong> {member.specialization}</Text>
-                                    <Text fontSize="sm" color="gray.600"><strong>Փորձ:</strong> {member.experience}</Text>
-                                    <Button
-                                        mt={3}
-                                        size="sm"
-                                        colorScheme="blue"
-                                        variant="outline"
-                                        onClick={() => {
-                                            setSelectedMemberIndex(index);
-                                            onOpen();
-                                        }}
-                                    >
-                                        Տեսնել ավելին
-                                    </Button>
-                                </MotionBox>
-                            </Box>
-                        ))}
 
-                        <ExperienceModal isOpen={isOpen} onClose={onClose} member={selectedMember} />
-                    </SimpleGrid>
-                </Container>
-            </Box>
 
             <Box bg="blue.800" color="white" py={{ base: 12, md: 20 }}>
                 <Container maxW={{ base: "90%", md: "container.lg" }} textAlign="center">

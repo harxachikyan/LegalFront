@@ -45,6 +45,23 @@ const HeroCarousel = () => {
             // Responsive height
             height={{ base: "300px", sm: "350px", md: "450px", lg: "550px", xl: "600px" }}
             overflow="hidden"
+            sx={{
+                '.slick-dots': {
+                    bottom: '20px',
+                    '@media screen and (max-width: 768px)': {
+                        bottom: '0px',
+                    },
+                },
+                '.slick-dots li button': {
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                },
+                '.slick-dots .slick-active button': {
+                    backgroundColor: '#ffffff',
+                },
+            }}
         >
             <Slider {...sliderSettings}>
                 {carouselItems.map((item, index) => (
