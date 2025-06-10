@@ -103,11 +103,18 @@ const DocumentsPage = () => {
             file: "ՀՀ օրենքը սահմանափակ պատասխանատվությամբ ընկերություների մասին.pdf"
         },
     ];
+    const isMobile = window.innerWidth <= 768;
 
     const openPdf = (filename) => {
-        setIsLoading(true);
-        setCurrentPdf(`/documents/${filename}`);
-        onOpen();
+        const pdfUrl = `/documents/${filename}`;
+
+        if (isMobile) {
+            window.open(pdfUrl);
+        } else {
+            setIsLoading(true);
+            setCurrentPdf(pdfUrl);
+            onOpen();
+        }
     };
 
     return (
@@ -271,7 +278,7 @@ const DocumentsPage = () => {
                                 >
                                     {doc.title}
                                 </Text>
-                                <Flex justify="space-between" alignItems="center">
+                                <Flex justify="space-between" alignItems="center" gap={2}>
                                     <Button
                                         onClick={() => openPdf(doc.file)}
                                         colorScheme="blue"
@@ -279,6 +286,18 @@ const DocumentsPage = () => {
                                         size={{ base: "sm", md: "md" }}
                                     >
                                         Կարդալ․․․
+                                    </Button>
+
+                                    <Button
+                                        as="a"
+                                        href={`/documents/${doc.file}`}
+                                        download
+                                        colorScheme="blue"
+                                        variant="ghost"
+                                        size={{ base: "sm", md: "md" }}
+                                        leftIcon={<DownloadIcon />}
+                                    >
+                                        Ներբեռնել
                                     </Button>
                                 </Flex>
                             </Box>
