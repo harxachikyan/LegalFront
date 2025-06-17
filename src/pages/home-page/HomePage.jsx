@@ -39,17 +39,17 @@ const HomePage = () => {
         {
             icon: faGavel,
             title: "Քաղաքացիական իրավունք",
-            description: "Ձեր իրավունքների և օրինական շահերի պաշտպանություն մասնավոր իրավունքին առնչվող ցանկացած գործով"
+            description: "Ձեր իրավունքների և օրինական շահերի պաշտպանություն մասնավոր իրավունքին առնչվող ցանկացած գործով:"
         },
         {
             icon: faBalanceScale,
             title: "Վարչական Իրավունք",
-            description: "Ձեր իրավունքի պաշտպանը պետական մարմինների հետ հարաբերություններում"
+            description: "Ձեր իրավունքի պաշտպանը պետական մարմինների հետ հարաբերություններում:"
         },
         {
             icon: faHandshake,
             title: "Կորպորատիվ Իրավունք",
-            description: "Ընկերություններ կորպորատիվ իրավաբանական սպասարկում և ցանկացած իրավական խնդրի լուծում"
+            description: "Ընկերություններ կորպորատիվ իրավաբանական սպասարկում և ցանկացած իրավական խնդրի լուծում:"
         }
     ];
 
@@ -109,7 +109,7 @@ const HomePage = () => {
                                     textAlign="center"
                                     flex={{ base: "1 0 100%", sm: "1 0 calc(50% - 16px)", md: "1" }}
                                     minW={{ base: "100%", sm: "300px" }}
-                                    maxW={{ base: "100%", md: "400px" }}
+                                    // maxW={{ base: "100%", md: "400px" }}
                                     transition="all 0.3s ease"
                                     whileHover={{ y: -5 }}
                                 >
@@ -128,7 +128,15 @@ const HomePage = () => {
                                     >
                                         {area.title}
                                     </Heading>
-                                    <Text fontSize={{ base: "sm", md: "md" }} mb={4}>
+                                    <Text
+                                        fontSize={{ base: "sm", md: "md" }}
+                                        textAlign="left"
+                                        sx={{
+                                            wordBreak: "break-word",
+                                            whiteSpace: "normal",
+                                            lineHeight: "1.7",
+                                        }}
+                                    >
                                         {area.description}
                                     </Text>
                                     <Button

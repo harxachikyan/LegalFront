@@ -25,8 +25,8 @@ const Marquee = ({ icon, title, subtitle, bgColor, speed = 20 }) => {
                             src={icon}
                             alt="Marquee Icon"
                             style={{
-                                height: '120px',
-
+                                height: '80px',
+                                borderRadius:'10px'
                             }}
                         />
                     </Box>

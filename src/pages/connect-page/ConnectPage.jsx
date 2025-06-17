@@ -99,58 +99,76 @@ const ConnectPage = () => {
             <Box
                 position="relative"
                 width="100%"
-                height={{ base: "400px", md: "500px", lg: "600px" }}
+                height={{ base: "500px", md: "600px", lg: "700px" }}
                 mb={{ base: 6, md: 10 }}
+                overflow="hidden"
             >
                 <Image
                     src="/assets/images/contact-wrapper.jpg"
-                    alt="Law Firm Banner"
+                    alt="Legal Help Background"
                     objectFit="cover"
                     width="100%"
                     height="100%"
                     opacity="0.8"
                 />
+
                 <Box
                     position="absolute"
                     top="0"
                     left="0"
                     right="0"
                     bottom="0"
-                    bg="rgba(0, 0, 0, 0.5)"
+                    bg="rgba(0, 0, 0, 0.6)"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
-                    textAlign="center"
-                    px={{ base: 4, md: 8 }}
+                    px={{ base: 4, md: 10 }}
                 >
                     <MotionBox
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.9 }}
+                        bg="rgba(255, 255, 255, 0.1)"
+                        backdropFilter="blur(10px)"
+                        borderRadius="xl"
+                        p={{ base: 6, md: 10 }}
+                        maxW="2xl"
+                        textAlign="left"
+                        color="white"
+                        boxShadow="2xl"
                     >
-                        <Box maxW={{ base: "90%", md: "2xl" }}>
-                            <Heading
-                                as="h1"
-                                fontSize={{ base: "2xl", sm: "3xl", md: "4xl", lg: "5xl" }}
-                                color="white"
-                                mb={{ base: 3, md: 4 }}
-                            >
-                                Legal Titan իրավաբանական ընկերություն
-                            </Heading>
-                            <Text
-                                fontSize={{ base: "md", md: "xl" }}
-                                color="white"
-                                mb={{ base: 4, md: 6 }}
-                            >
-                            </Text>
-                            <Button
-                                colorScheme="blue"
-                                size={{ base: "md", md: "lg" }}
-                                onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
-                            >
-                                Կապ մեզ հետ
-                            </Button>
-                        </Box>
+                        <Heading fontSize={{ base: "2xl", md: "4xl" }} mb={4}>
+                            Ինչո՞ւ դիմել մեզ
+                        </Heading>
+
+                        <Text fontSize={{ base: "md", md: "lg" }} mb={6} color="gray.200">
+                            Մեր փորձառու իրավաբանական թիմը պատրաստ է աջակցել Ձեզ՝ ապահովելով գաղտնիություն, արագ արձագանք և փորձագիտական մոտեցում։
+                        </Text>
+
+                        <HStack spacing={6} mb={6} flexWrap="wrap">
+                            <HStack>
+                                <Icon as={FaUserTie} color="white" />
+                                <Text fontSize="sm">Փորձառու իրավաբաններ</Text>
+                            </HStack>
+                            <HStack>
+                                <Icon as={FaClock} color="white" />
+                                <Text fontSize="sm">Արագ արձագանք</Text>
+                            </HStack>
+                            <HStack>
+                                <Icon as={FaEnvelope} color="white" />
+                                <Text fontSize="sm">100% Գաղտնիություն</Text>
+                            </HStack>
+                        </HStack>
+
+                        <Button
+                            size="lg"
+                            colorScheme="blue"
+                            onClick={() =>
+                                document.getElementById("contact-form").scrollIntoView({ behavior: "smooth" })
+                            }
+                        >
+                            Ուղարկել հարցում
+                        </Button>
                     </MotionBox>
                 </Box>
             </Box>
