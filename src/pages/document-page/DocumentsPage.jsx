@@ -21,8 +21,9 @@ import {
     Container
 } from "@chakra-ui/react";
 import { DownloadIcon, InfoIcon, StarIcon } from "@chakra-ui/icons";
-
+import {motion} from "framer-motion";
 const DocumentsPage = () => {
+    const MotionBox = motion(Box);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [currentPdf, setCurrentPdf] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -102,16 +103,27 @@ const DocumentsPage = () => {
             file: "ՀՀ օրենքը սահմանափակ պատասխանատվությամբ ընկերություների մասին.pdf"
         },
     ];
+    const isMobile = window.innerWidth <= 768;
 
     const openPdf = (filename) => {
-        setIsLoading(true);
-        setCurrentPdf(`/documents/${filename}`);
-        onOpen();
+        const pdfUrl = `/documents/${filename}`;
+
+        if (isMobile) {
+            window.open(pdfUrl);
+        } else {
+            setIsLoading(true);
+            setCurrentPdf(pdfUrl);
+            onOpen();
+        }
     };
 
     return (
         <Box>
-            {/* Hero Section */}
+            <MotionBox
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
             <Flex
                 direction={{ base: "column", md: "row" }}
                 align="center"
@@ -178,6 +190,7 @@ const DocumentsPage = () => {
                     />
                 </Box>
             </Flex>
+            </MotionBox>
 
             <Container maxW={{ base: "90%", md: "container.lg" }} py={{ base: 6, md: 8 }}>
 
@@ -198,6 +211,40 @@ const DocumentsPage = () => {
                     </Grid>
                 </Box>
 
+                <MotionBox
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <Box bg="blue.50" p={{ base: 4, md: 6 }} borderRadius="lg" mb={{ base: 6, md: 8 }} boxShadow="md">
+                        <Text
+                            fontSize={{ base: "xl", md: "2xl" }}
+                            fontWeight="bold"
+                            mb={{ base: 3, md: 4 }}
+                            color="blue.700"
+                        >
+                            Օգտակար տեղեկատվություն
+                        </Text>
+                        <Grid
+                            templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
+                            gap={{ base: 4, md: 6 }}
+                        >
+                            <Box>
+                                <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>Ինչպես օգտվել</Text>
+                                <Text fontSize={{ base: "sm", md: "md" }}>Ընտրեք ցանկալի օրենսգիրքը և կարդացեք առցանց</Text>
+                            </Box>
+                            <Box>
+                                <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>Ներբեռնում</Text>
+                                <Text fontSize={{ base: "sm", md: "md" }}>Սեղմեք «Կարդալ» կոճակը փաստաթղթերը դիտելու համար</Text>
+                            </Box>
+                            <Box>
+                                <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>Թարմացումներ</Text>
+                                <Text fontSize={{ base: "sm", md: "md" }}>Օրենսգրքերը պարբերաբար թարմացվում են</Text>
+                            </Box>
+                        </Grid>
+                    </Box>
+                </MotionBox>
+
 
                 <Box p={{ base: 0, md: 4 }}>
                     <Text
@@ -210,6 +257,14 @@ const DocumentsPage = () => {
                         ՀՀ Օրենսդրություն
                     </Text>
                     <Divider mb={{ base: 6, md: 8 }} />
+
+                    <MotionBox
+                        flex={{ base: "1 0 100%", md: "1" }}
+                        order={{ base: 2, md: 1 }}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
 
                     <Grid
                         templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
@@ -237,7 +292,7 @@ const DocumentsPage = () => {
                                 >
                                     {doc.title}
                                 </Text>
-                                <Flex justify="space-between" alignItems="center">
+                                <Flex justify="space-between" alignItems="center" gap={2}>
                                     <Button
                                         onClick={() => openPdf(doc.file)}
                                         colorScheme="blue"
@@ -246,14 +301,26 @@ const DocumentsPage = () => {
                                     >
                                         Կարդալ․․․
                                     </Button>
+
+                                    <Button
+                                        as="a"
+                                        href={`/documents/${doc.file}`}
+                                        download
+                                        colorScheme="blue"
+                                        variant="ghost"
+                                        size={{ base: "sm", md: "md" }}
+                                        leftIcon={<DownloadIcon />}
+                                    >
+                                        Ներբեռնել
+                                    </Button>
                                 </Flex>
                             </Box>
                         ))}
                     </Grid>
+                    </MotionBox>
                 </Box>
             </Container>
 
-            {/* PDF Viewer Modal */}
             <Modal isOpen={isOpen} onClose={onClose} size="full">
                 <ModalOverlay />
                 <ModalContent>

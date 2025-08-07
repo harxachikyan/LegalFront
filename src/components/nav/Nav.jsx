@@ -333,27 +333,27 @@ const Nav = () => {
                             onClick={() => window.open('https://mail.google.com/')}
                         />
                     </HStack>
-                    <HStack spacing={4} justify="center" mt={4} display={{ base: "flex", sm: "none" }}>
-                        {["ՀԱՅ", "ENG", "РУՍ"].map((lang) => (
-                            <Text
-                                key={lang}
-                                fontSize="sm"
-                                fontWeight="bold"
-                                color="rgba(255,255,255,0.8)"
-                                cursor="pointer"
-                                transition="all 0.3s ease"
-                                _hover={{
-                                    color: "white",
-                                    transform: "scale(1.1)",
-                                    textShadow: "0 0 10px rgba(255,255,255,0.5)"
-                                }}
-                                px={1}
-                                py={0.5}
-                            >
-                                {lang}
-                            </Text>
-                        ))}
-                    </HStack>
+                    {/*<HStack spacing={4} justify="center" mt={4} display={{ base: "flex", sm: "none" }}>*/}
+                    {/*    {["ՀԱՅ", "ENG", "РУՍ"].map((lang) => (*/}
+                    {/*        <Text*/}
+                    {/*            key={lang}*/}
+                    {/*            fontSize="sm"*/}
+                    {/*            fontWeight="bold"*/}
+                    {/*            color="rgba(255,255,255,0.8)"*/}
+                    {/*            cursor="pointer"*/}
+                    {/*            transition="all 0.3s ease"*/}
+                    {/*            _hover={{*/}
+                    {/*                color: "white",*/}
+                    {/*                transform: "scale(1.1)",*/}
+                    {/*                textShadow: "0 0 10px rgba(255,255,255,0.5)"*/}
+                    {/*            }}*/}
+                    {/*            px={1}*/}
+                    {/*            py={0.5}*/}
+                    {/*        >*/}
+                    {/*            {lang}*/}
+                    {/*        </Text>*/}
+                    {/*    ))}*/}
+                    {/*</HStack>*/}
                 </Box>
             </Collapse>
         </Box>
