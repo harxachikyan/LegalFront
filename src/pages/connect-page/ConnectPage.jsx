@@ -18,8 +18,7 @@ const ConnectPage = () => {
         surname: "",
         email: "",
         phone: "",
-        message: "",
-        caseType: ""
+        message: ""
     });
 
     const toast = useToast();
@@ -69,7 +68,6 @@ const ConnectPage = () => {
                 email: "",
                 phone: "",
                 message: "",
-                caseType: "",
             });
 
         } catch (error) {
@@ -142,7 +140,7 @@ const ConnectPage = () => {
                         </Heading>
 
                         <Text fontSize={{ base: "md", md: "lg" }} mb={6} color="gray.200">
-                            Մեր փորձառու իրավաբանական թիմը պատրաստ է աջակցել Ձեզ՝ ապահովելով գաղտնիություն, արագ արձագանք և փորձագիտական մոտեցում։
+                            Մեր փորձառու իրավաբանական թիմը պատրաստ է աջակցել Ձեզ՝ ապահովելով գաղտնիություն, պարտաճանաչություն և մշտական հասանելիություն։
                         </Text>
 
                         <HStack spacing={6} mb={6} flexWrap="wrap">
@@ -247,17 +245,6 @@ const ConnectPage = () => {
                                     />
                                 </FormControl>
 
-                                <FormControl>
-                                    <FormLabel fontSize={{ base: "sm", md: "md" }}>Հարցի տեսակը</FormLabel>
-                                    <Input
-                                        name="caseType"
-                                        value={formData.caseType}
-                                        onChange={handleChange}
-                                        placeholder="Իրավական հարցի տեսակը"
-                                        size={{ base: "md", md: "lg" }}
-                                        focusBorderColor="blue.500"
-                                    />
-                                </FormControl>
 
                                 <FormControl isRequired>
                                     <FormLabel fontSize={{ base: "sm", md: "md" }}>Ձեր հաղորդագրությունը</FormLabel>
@@ -265,7 +252,7 @@ const ConnectPage = () => {
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
-                                        placeholder="Նկարագրեք Ձեր հարցը..."
+                                        placeholder="Հակիրճ նկարագրեք Ձեր խնդիրը..."
                                         size={{ base: "md", md: "lg" }}
                                         focusBorderColor="blue.500"
                                         rows={6}
