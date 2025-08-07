@@ -135,12 +135,7 @@ const DocumentsPage = () => {
                     >
                         Հայաստանի Հանրապետության Օրենսդրություն
                     </Text>
-                    <Text
-                        fontSize={{ base: "md", md: "lg" }} e
-                        mb={{ base: 3, md: 4 }}
-                    >
-                        Բոլոր գործող օրենքներն ու նորմատիվ ակտերը մեկ տեղում
-                    </Text>
+
                     <Stack
                         direction={{ base: "column", sm: "row" }}
                         spacing={{ base: 2, sm: 4 }}
@@ -185,31 +180,20 @@ const DocumentsPage = () => {
             </Flex>
 
             <Container maxW={{ base: "90%", md: "container.lg" }} py={{ base: 6, md: 8 }}>
-                {/* Useful Information Section */}
+
                 <Box bg="blue.50" p={{ base: 4, md: 6 }} borderRadius="lg" mb={{ base: 6, md: 8 }} boxShadow="md">
-                    <Text
-                        fontSize={{ base: "xl", md: "2xl" }}
-                        fontWeight="bold"
-                        mb={{ base: 3, md: 4 }}
-                        color="blue.700"
-                    >
-                        Օգտակար տեղեկատվություն
-                    </Text>
+
                     <Grid
-                        templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }}
+                        templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", md: "repeat(2, 1fr)" }}
                         gap={{ base: 4, md: 6 }}
                     >
                         <Box>
-                            <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>Ինչպես օգտվել</Text>
-                            <Text fontSize={{ base: "sm", md: "md" }}>Ընտրեք ցանկալի օրենսգիրքը և կարդացեք առցանց</Text>
+                            <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>Ինչպե՞ս օգտվել</Text>
+                            <Text fontSize={{ base: "sm", md: "md" }}>Ընտրեք ցանկալի օրենքը և կարդացեք այն:</Text>
                         </Box>
                         <Box>
                             <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>Ներբեռնում</Text>
                             <Text fontSize={{ base: "sm", md: "md" }}>Սեղմեք «Կարդալ» կոճակը փաստաթղթերը դիտելու համար</Text>
-                        </Box>
-                        <Box>
-                            <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>Թարմացումներ</Text>
-                            <Text fontSize={{ base: "sm", md: "md" }}>Օրենսգրքերը պարբերաբար թարմացվում են</Text>
                         </Box>
                     </Grid>
                 </Box>

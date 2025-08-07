@@ -27,7 +27,7 @@ const MotionBox = motion(Box);
 const AboutPage = () => {
     const stats = [
         { value: "5+", label: "Տարիների փորձ" },
-        { value: "100+", label: "Դատական գործեր" },
+        { value: "200+", label: "Դատական գործեր" },
         { value: "94%", label: "Հաջողված գործեր" },
 
     ];
@@ -35,7 +35,7 @@ const AboutPage = () => {
     const values = [
         {
             icon: FaBalanceScale,
-            title: "Արդարուրթյան վերականգնում",
+            title: "Արդարության վերականգնում",
             description: "Մեր վստահորդների իրավունքների և օրինական շահերի պաշտպանության համար մենք պայքարում ենք բոլոր ատյաններում։"
         },
         {
@@ -111,13 +111,17 @@ const AboutPage = () => {
                 <SimpleGrid
                     columns={{ base: 1, md: 2 }}
                     spacing={{ base: 8, md: 10 }}
-                    alignItems="center"
+                    alignItems="stretch"
                 >
                     <MotionBox
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="center"
+                        minH={{ base: "250px", sm: "300px", md: "300px" }}
                     >
                         <Heading
                             as="h2"
@@ -127,24 +131,38 @@ const AboutPage = () => {
                         >
                             Մեր Պատմությունը
                         </Heading>
+
                         <Text
                             fontSize={{ base: "md", md: "lg" }}
+                            whiteSpace="pre-line"
                             mb={{ base: 3, md: 4 }}
                         >
-                            Ընկերությունը հիմնադրվել է 2023թ-ին:Հիմնադրման օրվանից ընկերության իրավաբանները և փաստաբանները ձեռնամուխ են եղել անձանց իրավնունքների պաշտպանության կարևոր առաքելությանը:
+                            Ընկերությունը հիմնադրվել է 2023թ-ին։<br />
+                            Հիմնադրման օրվանից մեր իրավաբանները<br />
+                            և փաստաբանները պաշտպանել են<br />
+                            անձանց իրավունքներն ու շահերը:
                         </Text>
+
                         <Text
                             fontSize={{ base: "md", md: "lg" }}
+                            whiteSpace="pre-line"
                             mb={{ base: 3, md: 4 }}
                         >
-                            Արդյունքում ընկերության ծառայություններից օգտված վստահորդները գոհ են մնացել արդյունքներից և ցուցաբերված անհատական մոտեցումներից:
+                            Արդյունքում մեր վստահորդները լիովին<br />
+                            գոհ են եղել ցուցաբերված մոտեցումից<br />
+                            և ստացած իրավական աջակցությունից:
                         </Text>
+
                         <Text
                             fontSize={{ base: "md", md: "lg" }}
+                            whiteSpace="pre-line"
                         >
-                            Մեր ողջ ճանապարհի ընթացքում մենք մնացել ենք հավատարիմ մեր հիմնական արժեքներին՝ արդարադատությանը,աշխատասիրությանը և յուրաքանչյուր վստահորդին անհատական մոտեցում ցուցաբերելուն:
+                            Մենք հավատարիմ ենք մնում մեր<br />
+                            արժեքներին՝ արդարություն, աշխատասիրություն,<br />
+                            և անհատական մոտեցում յուրաքանչյուրին:
                         </Text>
                     </MotionBox>
+
                     <MotionBox
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -163,6 +181,8 @@ const AboutPage = () => {
                         />
                     </MotionBox>
                 </SimpleGrid>
+
+
             </Container>
 
             <Box bg="blue.800" color="white" py={{ base: 10, md: 16 }}>
@@ -242,39 +262,43 @@ const AboutPage = () => {
                             p={{ base: 6, md: 8 }}
                             borderRadius="xl"
                             boxShadow="lg"
-                            textAlign="center"
                             _hover={{
                                 boxShadow: "2xl",
                                 transform: "translateY(-8px)",
                                 transition: "all 0.3s ease"
                             }}
-                            minH={{ base: "300px", md: "350px" }}
                             display="flex"
                             flexDirection="column"
+                            justifyContent="space-between"
+                            minH={{ base: "300px", md: "350px" }}
                         >
-                            <Icon
-                                as={value.icon}
-                                boxSize={{ base: 10, md: 14 }}
-                                margin="auto"
-                                color="blue.600"
-                                mb={{ base: 4, md: 6 }}
-                            />
-                            <Heading
-                                as="h3"
-                                fontSize={{ base: "lg", md: "xl" }}
-                                mb={{ base: 2, md: 4 }}
-                                color="blue.800"
-                            >
-                                {value.title}
-                            </Heading>
-                            <Text
-                                fontSize={{ base: "sm", md: "md" }}
-                                color="gray.600"
-                                px={{ base: 2, md: 4 }}
-                            >
-                                {value.description}
-                            </Text>
+                            <Box display="flex" justifyContent="center" mb={{ base: 4, md: 6 }}>
+                                <Icon
+                                    as={value.icon}
+                                    boxSize={{ base: 10, md: 14 }}
+                                    color="blue.600"
+                                />
+                            </Box>
+
+                            <Box textAlign="center" flex="1">
+                                <Heading
+                                    as="h3"
+                                    fontSize={{ base: "lg", md: "xl" }}
+                                    mb={{ base: 2, md: 4 }}
+                                    color="blue.800"
+                                >
+                                    {value.title}
+                                </Heading>
+                                <Text
+                                    fontSize={{ base: "sm", md: "md" }}
+                                    color="gray.600"
+                                    px={{ base: 2, md: 4 }}
+                                >
+                                    {value.description}
+                                </Text>
+                            </Box>
                         </MotionBox>
+
                     ))}
                 </SimpleGrid>
             </Container>
